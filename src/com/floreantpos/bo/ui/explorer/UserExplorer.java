@@ -1,16 +1,5 @@
 package com.floreantpos.bo.ui.explorer;
 
-import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.List;
-
-import javax.swing.JButton;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-
-import org.hibernate.exception.ConstraintViolationException;
-
 import com.floreantpos.main.Application;
 import com.floreantpos.model.User;
 import com.floreantpos.model.dao.UserDAO;
@@ -20,6 +9,14 @@ import com.floreantpos.ui.PosTableRenderer;
 import com.floreantpos.ui.dialog.BeanEditorDialog;
 import com.floreantpos.ui.dialog.ConfirmDeleteDialog;
 import com.floreantpos.ui.forms.UserForm;
+import org.hibernate.exception.ConstraintViolationException;
+
+import javax.swing.*;
+import javax.swing.table.TableRowSorter;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
 
 public class UserExplorer extends TransparentPanel {
 	
@@ -32,6 +29,8 @@ public class UserExplorer extends TransparentPanel {
 		tableModel = new UserTableModel(users);
 		table = new JTable(tableModel);
 		table.setDefaultRenderer(Object.class, new PosTableRenderer());
+		//Add sorting, dag nabit!
+		table.setRowSorter(new TableRowSorter<UserTableModel>(tableModel));
 		
 		setLayout(new BorderLayout(5,5));
 		add(new JScrollPane(table));
@@ -44,7 +43,7 @@ public class UserExplorer extends TransparentPanel {
 					
 					UserForm editor = new UserForm();
 					if(userWithMaxId != null) {
-						editor.setId(new Integer(userWithMaxId.intValue() + 1));
+						editor.setId(userWithMaxId + 1);
 					}
 					BeanEditorDialog dialog = new BeanEditorDialog(editor, Application.getInstance().getBackOfficeWindow(), true);
 					dialog.open();
@@ -63,7 +62,7 @@ public class UserExplorer extends TransparentPanel {
 		copyButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					int index = table.getSelectedRow();
+					int index = table.convertRowIndexToModel(table.getSelectedRow());
 					if (index < 0)
 						return;
 
@@ -98,7 +97,8 @@ public class UserExplorer extends TransparentPanel {
 		editButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					int index = table.getSelectedRow();
+					int index = table.convertRowIndexToModel(table.getSelectedRow());
+					
 					if (index < 0)
 						return;
 
@@ -121,7 +121,7 @@ public class UserExplorer extends TransparentPanel {
 		JButton deleteButton = new JButton(com.floreantpos.POSConstants.DELETE);
 		deleteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int index = table.getSelectedRow();
+				int index = table.convertRowIndexToModel(table.getSelectedRow());
 				if (index < 0)
 					return;
 				

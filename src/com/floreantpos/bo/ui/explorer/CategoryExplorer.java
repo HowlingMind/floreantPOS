@@ -1,15 +1,5 @@
 package com.floreantpos.bo.ui.explorer;
 
-import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.List;
-
-import javax.swing.JButton;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.AbstractTableModel;
-
 import com.floreantpos.main.Application;
 import com.floreantpos.model.MenuCategory;
 import com.floreantpos.model.dao.MenuCategoryDAO;
@@ -19,6 +9,14 @@ import com.floreantpos.ui.PosTableRenderer;
 import com.floreantpos.ui.dialog.BeanEditorDialog;
 import com.floreantpos.ui.dialog.ConfirmDeleteDialog;
 import com.floreantpos.ui.model.MenuCategoryForm;
+
+import javax.swing.*;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableRowSorter;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
 
 public class CategoryExplorer extends TransparentPanel {
 	private List<MenuCategory> categoryList;
@@ -34,6 +32,8 @@ public class CategoryExplorer extends TransparentPanel {
 		tableModel = new CategoryExplorerTableModel();
 		table = new JTable(tableModel);
 		table.setDefaultRenderer(Object.class, new PosTableRenderer());
+		//Add sorting, dag nabit!
+		table.setRowSorter(new TableRowSorter(tableModel));
 		
 		setLayout(new BorderLayout(5,5));
 		add(new JScrollPane(table));
@@ -60,7 +60,7 @@ public class CategoryExplorer extends TransparentPanel {
 		editButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					int index = table.getSelectedRow();
+					int index = table.convertRowIndexToModel(table.getSelectedRow());
 					if (index < 0)
 						return;
 
@@ -83,7 +83,7 @@ public class CategoryExplorer extends TransparentPanel {
 		deleteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					int index = table.getSelectedRow();
+					int index = table.convertRowIndexToModel(table.getSelectedRow());
 					if (index < 0)
 						return;
 

@@ -1,20 +1,14 @@
 package com.floreantpos.ui;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.swing.JPanel;
-import javax.swing.JScrollBar;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.ListSelectionModel;
-import javax.swing.table.TableColumnModel;
-
 import com.floreantpos.bo.ui.explorer.ListTableModel;
 import com.floreantpos.model.Ticket;
+
+import javax.swing.*;
+import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableRowSorter;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TicketListView extends JPanel {
 	private JTable table;
@@ -27,6 +21,7 @@ public class TicketListView extends JPanel {
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_LAST_COLUMN);
 		table.setDefaultRenderer(Object.class, new PosTableRenderer());
 		table.setGridColor(Color.LIGHT_GRAY);
+		table.setRowSorter(new TableRowSorter<TicketListTableModel>(tableModel));
 		
 		TableColumnModel columnModel = table.getColumnModel();
 		columnModel.getColumn(0).setPreferredWidth(20);
@@ -66,7 +61,7 @@ public class TicketListView extends JPanel {
 		ArrayList<Ticket> tickets = new ArrayList<Ticket>(selectedRows.length);
 		
 		for (int i = 0; i < selectedRows.length; i++) {
-			Ticket ticket = (Ticket) tableModel.getRowData(selectedRows[i]);
+			Ticket ticket = (Ticket) tableModel.getRowData(table.convertRowIndexToModel(selectedRows[i]));
 			tickets.add(ticket);
 		}
 		return tickets;

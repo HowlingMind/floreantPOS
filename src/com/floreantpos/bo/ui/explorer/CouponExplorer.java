@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableRowSorter;
 
 import com.floreantpos.main.Application;
 import com.floreantpos.model.CouponAndDiscount;
@@ -28,6 +29,8 @@ public class CouponExplorer extends TransparentPanel implements ActionListener {
 		
 		explorerView = new JTable();
 		explorerView.setDefaultRenderer(Object.class, new PosTableRenderer());
+		//Add sorting, dag nabit!
+		explorerView.setRowSorter(new TableRowSorter(explorerModel));
 		
 		setLayout(new BorderLayout(5,5));
 		add(new JScrollPane(explorerView));
@@ -171,7 +174,7 @@ public class CouponExplorer extends TransparentPanel implements ActionListener {
 			addNewCoupon();
 		}
 		else if(com.floreantpos.POSConstants.EDIT.equals(actionCommand)) {
-			int index = explorerView.getSelectedRow();
+			int index = explorerView.convertRowIndexToModel(explorerView.getSelectedRow());
 			if(index < 0) {
 				MessageDialog.showError(com.floreantpos.POSConstants.SELECT_COUPON_TO_EDIT);
 				return;
@@ -180,7 +183,7 @@ public class CouponExplorer extends TransparentPanel implements ActionListener {
 			editCoupon(coupon);
 		}
 		else if(com.floreantpos.POSConstants.DELETE.equals(actionCommand)) {
-			int index = explorerView.getSelectedRow();
+			int index = explorerView.convertRowIndexToModel(explorerView.getSelectedRow());
 			if(index < 0) {
 				MessageDialog.showError(com.floreantpos.POSConstants.SELECT_COUPON_TO_DELETE);
 				return;

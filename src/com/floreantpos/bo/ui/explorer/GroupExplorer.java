@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableRowSorter;
 
 import com.floreantpos.main.Application;
 import com.floreantpos.model.MenuGroup;
@@ -33,6 +34,8 @@ public class GroupExplorer extends TransparentPanel {
 		tableModel = new GroupExplorerTableModel();
 		table = new JTable(tableModel);
 		table.setDefaultRenderer(Object.class, new PosTableRenderer());
+		//Add sorting, dag nabit!
+		table.setRowSorter(new TableRowSorter(tableModel));
 
 		setLayout(new BorderLayout(5, 5));
 		add(new JScrollPane(table));
@@ -45,7 +48,7 @@ public class GroupExplorer extends TransparentPanel {
 		editButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					int index = table.getSelectedRow();
+					int index = table.convertRowIndexToModel(table.getSelectedRow());
 					if (index < 0)
 						return;
 
@@ -84,7 +87,7 @@ public class GroupExplorer extends TransparentPanel {
 		deleteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					int index = table.getSelectedRow();
+					int index = table.convertRowIndexToModel(table.getSelectedRow());
 					if (index < 0)
 						return;
 					if (ConfirmDeleteDialog.showMessage(GroupExplorer.this, com.floreantpos.POSConstants.CONFIRM_DELETE, com.floreantpos.POSConstants.DELETE) != ConfirmDeleteDialog.NO) {

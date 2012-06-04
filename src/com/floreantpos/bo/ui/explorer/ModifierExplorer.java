@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableRowSorter;
 
 import org.jdesktop.swingx.JXTable;
 
@@ -39,6 +40,8 @@ public class ModifierExplorer extends TransparentPanel {
 		table.setAutoResizeMode(JXTable.AUTO_RESIZE_OFF);
 		table.setDefaultRenderer(Object.class, new PosTableRenderer());
 		//table.packAll();
+		//Add sorting, dag nabit!
+		table.setRowSorter(new TableRowSorter(tableModel));
 		
 		setLayout(new BorderLayout(5, 5));
 		add(new JScrollPane(table));
@@ -52,7 +55,7 @@ public class ModifierExplorer extends TransparentPanel {
 		editButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					int index = table.getSelectedRow();
+					int index = table.convertRowIndexToModel(table.getSelectedRow());
 					if (index < 0)
 						return;
 					MenuModifier modifier = modifierList.get(index);
@@ -90,7 +93,7 @@ public class ModifierExplorer extends TransparentPanel {
 		deleteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					int index = table.getSelectedRow();
+					int index = table.convertRowIndexToModel(table.getSelectedRow());
 					if (index < 0)
 						return;
 					if (ConfirmDeleteDialog.showMessage(ModifierExplorer.this, com.floreantpos.POSConstants.CONFIRM_DELETE, com.floreantpos.POSConstants.DELETE) != ConfirmDeleteDialog.NO) {

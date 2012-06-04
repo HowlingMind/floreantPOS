@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableRowSorter;
 
 import com.floreantpos.main.Application;
 import com.floreantpos.model.MenuModifierGroup;
@@ -33,6 +34,8 @@ public class ModifierGroupExplorer extends TransparentPanel {
 		tableModel = new ModifierGroupExplorerTableModel();
 		table = new JTable(tableModel);
 		table.setDefaultRenderer(Object.class, new PosTableRenderer());
+		//Add sorting, dag nabit!
+		table.setRowSorter(new TableRowSorter(tableModel));
 
 		setLayout(new BorderLayout(5, 5));
 		add(new JScrollPane(table));
@@ -47,7 +50,7 @@ public class ModifierGroupExplorer extends TransparentPanel {
 
 			public void actionPerformed(ActionEvent e) {
 				try {
-					int index = table.getSelectedRow();
+					int index = table.convertRowIndexToModel(table.getSelectedRow());
 					if (index < 0)
 						return;
 					MenuModifierGroup category = mGroupList.get(index);
@@ -90,7 +93,7 @@ public class ModifierGroupExplorer extends TransparentPanel {
 
 			public void actionPerformed(ActionEvent e) {
 				try {
-					int index = table.getSelectedRow();
+					int index = table.convertRowIndexToModel(table.getSelectedRow());
 					if (index < 0)
 						return;
 					if (ConfirmDeleteDialog.showMessage(ModifierGroupExplorer.this, com.floreantpos.POSConstants.CONFIRM_DELETE, com.floreantpos.POSConstants.DELETE) != ConfirmDeleteDialog.NO) {
