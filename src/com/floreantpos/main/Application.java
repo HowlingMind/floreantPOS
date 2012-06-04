@@ -1,32 +1,9 @@
 package com.floreantpos.main;
 
-import java.awt.Dimension;
-import java.awt.Point;
-import java.awt.Toolkit;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.Timer;
-import javax.swing.UIManager;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import com.floreantpos.bo.ui.BackOfficeWindow;
 import com.floreantpos.config.ApplicationConfig;
 import com.floreantpos.config.ui.DatabaseConfigurationDialog;
-import com.floreantpos.model.PrinterConfiguration;
-import com.floreantpos.model.Restaurant;
-import com.floreantpos.model.Shift;
-import com.floreantpos.model.Terminal;
-import com.floreantpos.model.User;
+import com.floreantpos.model.*;
 import com.floreantpos.model.dao.PrinterConfigurationDAO;
 import com.floreantpos.model.dao.RestaurantDAO;
 import com.floreantpos.model.dao.TerminalDAO;
@@ -38,6 +15,17 @@ import com.floreantpos.ui.views.order.RootView;
 import com.floreantpos.util.TicketActiveDateSetterTask;
 import com.jgoodies.looks.plastic.PlasticXPLookAndFeel;
 import com.jgoodies.looks.plastic.theme.ExperienceBlue;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Application {
 	private static Log logger = LogFactory.getLog(Application.class);
@@ -93,7 +81,7 @@ public class Application {
 
 	private void setApplicationLook() {
 		try {
-			PlasticXPLookAndFeel.setPlasticTheme(new ExperienceBlue());
+			PlasticXPLookAndFeel.setMyCurrentTheme(new ExperienceBlue());
 			UIManager.setLookAndFeel(new PlasticXPLookAndFeel());
 			UIManager.put("ComboBox.is3DEnabled", Boolean.FALSE);
 		} catch (Exception ignored) {
