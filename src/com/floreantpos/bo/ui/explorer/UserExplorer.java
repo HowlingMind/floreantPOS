@@ -156,7 +156,7 @@ public class UserExplorer extends TransparentPanel {
 	class UserTableModel extends ListTableModel {
 		
 		UserTableModel(List list){
-			super(new String[] {com.floreantpos.POSConstants.ID, com.floreantpos.POSConstants.FIRST_NAME, com.floreantpos.POSConstants.LAST_NAME, com.floreantpos.POSConstants.TYPE}, list);
+			super(new String[] {com.floreantpos.POSConstants.ID, com.floreantpos.POSConstants.FIRST_NAME, com.floreantpos.POSConstants.LAST_NAME, com.floreantpos.POSConstants.TYPE, "Clocked In?","Last Clocked In"}, list);
 		}
 		
 
@@ -175,6 +175,12 @@ public class UserExplorer extends TransparentPanel {
 					
 				case 3:
 					return user.getNewUserType();
+					
+				case 4: 
+					return user.isClockedIn();
+				
+				case 5:
+					return String.valueOf(user.getLastClockInTime());
 			}
 			return null;
 		}
