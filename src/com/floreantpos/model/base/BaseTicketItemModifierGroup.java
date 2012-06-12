@@ -50,6 +50,7 @@ public abstract class BaseTicketItemModifierGroup  implements Comparable, Serial
 	private java.lang.Integer modifierGroupId;
 	private java.lang.Integer minQuantity;
 	private java.lang.Integer maxQuantity;
+	private String name;
 
 	// many to one
 	private com.floreantpos.model.TicketItem parent;
@@ -221,5 +222,19 @@ public abstract class BaseTicketItemModifierGroup  implements Comparable, Serial
 		return super.toString();
 	}
 
+	/**
+	 * Return the value associated with the column: NAME
+	 */
+	public java.lang.String getName () {
+			return name;
+	}
+	
+	/**
+	 * Set the value related to the column: NAME
+	 * @param name the NAME value
+	 */
+	public void setName (java.lang.String name) {
+		this.name = name;
+	}
 
 }
