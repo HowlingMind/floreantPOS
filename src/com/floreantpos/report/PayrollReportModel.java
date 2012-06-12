@@ -1,9 +1,9 @@
 package com.floreantpos.report;
 
+import com.floreantpos.bo.ui.explorer.ListTableModel;
+
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-
-import com.floreantpos.bo.ui.explorer.ListTableModel;
 
 public class PayrollReportModel extends ListTableModel {
 	SimpleDateFormat dateFormat2 = new SimpleDateFormat("MMM-dd-yyyy hh:mm a");
@@ -11,7 +11,7 @@ public class PayrollReportModel extends ListTableModel {
 	DecimalFormat decimalFormat = new DecimalFormat("0.00");
 
 	public PayrollReportModel() {
-		super(new String[] { "userID", "userName", "from", "to", com.floreantpos.POSConstants.TOTAL, "rate", "payment", "userSSN" });
+		super(new String[] { "userID", "userName", "from", "to", "total", "rate", "payment", "userSSN" });
 	}
 
 	public Object getValueAt(int rowIndex, int columnIndex) {
@@ -19,7 +19,8 @@ public class PayrollReportModel extends ListTableModel {
 
 		switch (columnIndex) {
 		case 0:
-			return data.getUser().getUserId();
+			//Payroll report expects this to be a string --BW 1.21.12
+			return data.getUser().getUserId().toString();
 
 		case 1:
 			return data.getUser().getFirstName() + " " + data.getUser().getLastName();
