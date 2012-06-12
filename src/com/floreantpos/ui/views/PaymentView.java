@@ -128,15 +128,15 @@ public abstract class PaymentView extends JPanel {
 			PosTransactionService service = PosTransactionService.getInstance();
 			service.settleTickets(ticketsToSettle, tenderedAmount, gratuityAmount, posTransaction, cardType, cardAuthorizationCode);
 			
-			try {
+			/*try {
 				for (Ticket ticket : ticketsToSettle) {
 					PosPrintService.printTicket(ticket);
 				}
 			}catch(Exception ee) {
 				POSMessageDialog.showError(Application.getPosWindow(), com.floreantpos.POSConstants.PRINT_ERROR, ee);
-			}
+			}*/
 			
-			/*if(Application.getPrinterConfiguration().isPrintReceiptWhenTicketPaid()) {
+			if(Application.getPrinterConfiguration().isPrintReceiptWhenTicketPaid()) {
 				try {
 					for (Ticket ticket : ticketsToSettle) {
 						PosPrintService.printTicket(ticket);
@@ -150,14 +150,14 @@ public abstract class PaymentView extends JPanel {
 				try {
 					for (Ticket ticket : ticketsToSettle) {
 						if(ticket.needsKitchenPrint()) {
-							PosPrintService.printToKitcken(ticket);
+							PosPrintService.printToKitchen(ticket);
 						}
 						ticket.clearDeletedItems();
 					}
 				}catch(Exception ee) {
 					POSMessageDialog.showError(Application.getPosWindow(), com.floreantpos.POSConstants.THERE_WAS_AN_ERROR_WHILE_PRINTING_TO_KITCHEN, ee);
 				}
-			}*/
+			}
 			
 			double paidAmount = Double.parseDouble(Application.formatNumber(getPaidAmount()));
 			double dueAmount = Double.parseDouble(Application.formatNumber(getDueAmount()));
