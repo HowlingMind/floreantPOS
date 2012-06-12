@@ -53,7 +53,7 @@ public class PrintConfig {
 		return ApplicationConfig.getString(P_CASH_DRAWER_NAME, "CashDrawer");
 	}
 
-	public static boolean isPrintReceiptWhenSetteled() {
+	public static boolean isPrintReceiptWhenCreated() {
 		return ApplicationConfig.getBoolean(P_PRINT_RECEIPT_WHEN_SETTELED, true);
 	}
 
@@ -61,7 +61,7 @@ public class PrintConfig {
 		return ApplicationConfig.getBoolean(P_PRINT_RECEIPT_WHEN_PAID, false);
 	}
 
-	public static boolean isPrintKitchenWhenSetteled() {
+	public static boolean isPrintKitchenWhenCreated() {
 		return ApplicationConfig.getBoolean(P_PRINT_KITCHEN_WHEN_SETTELED, false);
 	}
 

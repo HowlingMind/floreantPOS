@@ -11,19 +11,14 @@
 
 package com.floreantpos.config.ui;
 
-import java.awt.Component;
-
-import javax.print.PrintService;
-import javax.print.PrintServiceLookup;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListCellRenderer;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JList;
-
 import com.floreantpos.config.ApplicationConfig;
 import com.floreantpos.config.PrintConfig;
 import com.floreantpos.print.PrinterType;
+
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  *
@@ -191,11 +186,11 @@ public class PrintConfigurationView extends ConfigurationView {
         javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
         lblSelectKitchenPrinter = new javax.swing.JLabel();
 
-        chkPrintReceiptWhenTicketSettled.setText(com.floreantpos.POSConstants.PRINT_RECEIPT_WHEN_TICKET_SETTLED);
+        chkPrintReceiptWhenTicketSettled.setText(com.floreantpos.POSConstants.PRINT_RECEIPT_WHEN_TICKET_CREATED);
 
         chkPrintReceiptWhenTicketPaid.setText(com.floreantpos.POSConstants.PRINT_RECEIPT_WHEN_TICKET_PAID);
 
-        chkPrintKitchenWhenTicketSettled.setText(com.floreantpos.POSConstants.PRINT_TO_KITCHEN_WHEN_TICKET_SETTLED);
+        chkPrintKitchenWhenTicketSettled.setText(com.floreantpos.POSConstants.PRINT_TO_KITCHEN_WHEN_TICKET_CREATED);
 
         chkPrintKitchenWhenTicketPaid.setText(com.floreantpos.POSConstants.PRINT_TO_KITCHEN_WHEN_TICKET_PAID);
 
