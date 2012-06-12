@@ -6,28 +6,22 @@
 
 package com.floreantpos.ui.views.order;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-
-import javax.swing.JPanel;
-
 import com.floreantpos.POSConstants;
 import com.floreantpos.PosException;
 import com.floreantpos.config.PrintConfig;
 import com.floreantpos.main.Application;
-import com.floreantpos.model.MenuCategory;
-import com.floreantpos.model.MenuGroup;
-import com.floreantpos.model.MenuItem;
-import com.floreantpos.model.Ticket;
-import com.floreantpos.model.TicketItem;
-import com.floreantpos.model.TicketItemModifier;
+import com.floreantpos.model.*;
 import com.floreantpos.model.dao.MenuItemDAO;
 import com.floreantpos.print.PosPrintService;
 import com.floreantpos.ui.dialog.POSMessageDialog;
 import com.floreantpos.ui.views.SwitchboardView;
 import com.floreantpos.ui.views.order.actions.OrderListener;
+
+import javax.swing.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 /**
  *
@@ -353,11 +347,11 @@ public class TicketView extends JPanel {
 
 			OrderController.saveOrder(ticket);
 
-//			if (PrintConfig.isPrintReceiptWhenSetteled()) {
-//				PosPrintService.printTicket(ticket);
-//			}
+			if (PrintConfig.isPrintReceiptWhenCreated()) {
+				PosPrintService.printTicket(ticket);
+			}
 
-			if (PrintConfig.isPrintKitchenWhenSetteled()) {
+			if (PrintConfig.isPrintKitchenWhenCreated()) {
 				if (ticket.needsKitchenPrint()) {
 					PosPrintService.printToKitchen(ticket);
 				}
