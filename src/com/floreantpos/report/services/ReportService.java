@@ -1,57 +1,26 @@
 package com.floreantpos.report.services;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-
+import com.floreantpos.main.Application;
+import com.floreantpos.model.*;
+import com.floreantpos.model.dao.*;
+import com.floreantpos.model.util.RefundSummary;
+import com.floreantpos.model.util.TransactionSummary;
+import com.floreantpos.report.*;
+import com.floreantpos.report.CreditCardReport.CreditCardReportData;
+import com.floreantpos.report.JournalReportModel.JournalReportData;
+import com.floreantpos.report.MenuUsageReport.MenuUsageReportData;
+import com.floreantpos.report.SalesDetailedReport.DrawerPullData;
+import com.floreantpos.report.ServerProductivityReport.ServerProductivityReportData;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
-import com.floreantpos.main.Application;
-import com.floreantpos.model.ActionHistory;
-import com.floreantpos.model.CashDropTransaction;
-import com.floreantpos.model.CouponAndDiscount;
-import com.floreantpos.model.CreditCardTransaction;
-import com.floreantpos.model.DebitCardTransaction;
-import com.floreantpos.model.DrawerPullReport;
-import com.floreantpos.model.DrawerPullVoidTicketEntry;
-import com.floreantpos.model.GiftCertificateTransaction;
-import com.floreantpos.model.Gratuity;
-import com.floreantpos.model.MenuCategory;
-import com.floreantpos.model.PayOutTransaction;
-import com.floreantpos.model.PosTransaction;
-import com.floreantpos.model.Terminal;
-import com.floreantpos.model.Ticket;
-import com.floreantpos.model.TicketCouponAndDiscount;
-import com.floreantpos.model.TicketItem;
-import com.floreantpos.model.User;
-import com.floreantpos.model.dao.CashDropTransactionDAO;
-import com.floreantpos.model.dao.CashTransactionDAO;
-import com.floreantpos.model.dao.CouponAndDiscountDAO;
-import com.floreantpos.model.dao.CreditCardTransactionDAO;
-import com.floreantpos.model.dao.DebitCardTransactionDAO;
-import com.floreantpos.model.dao.GenericDAO;
-import com.floreantpos.model.dao.PayOutTransactionDAO;
-import com.floreantpos.model.dao.RefundTransactionDAO;
-import com.floreantpos.model.dao.TicketDAO;
-import com.floreantpos.model.util.RefundSummary;
-import com.floreantpos.model.util.TransactionSummary;
-import com.floreantpos.report.CreditCardReport;
-import com.floreantpos.report.JournalReportModel;
-import com.floreantpos.report.MenuUsageReport;
-import com.floreantpos.report.SalesBalanceReport;
-import com.floreantpos.report.SalesDetailedReport;
-import com.floreantpos.report.SalesExceptionReport;
-import com.floreantpos.report.ServerProductivityReport;
-import com.floreantpos.report.CreditCardReport.CreditCardReportData;
-import com.floreantpos.report.JournalReportModel.JournalReportData;
-import com.floreantpos.report.MenuUsageReport.MenuUsageReportData;
-import com.floreantpos.report.SalesDetailedReport.DrawerPullData;
-import com.floreantpos.report.ServerProductivityReport.ServerProductivityReportData;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 public class ReportService {
 	private static SimpleDateFormat fullDateFormatter = new SimpleDateFormat("MMM dd yyyy, hh:mm a");
@@ -133,14 +102,15 @@ public class ReportService {
 			categories.add(miscCategory);
 
 			for (MenuCategory category : categories) {
-				criteria = session.createCriteria(TicketItem.class, "item");
+				criteria = session.createCriteria(TicketItem.class, com.floreantpos.POSConstants.ITEM);
 				criteria.createCriteria("ticket", "t");
 				ProjectionList projectionList = Projections.projectionList();
 				projectionList.add(Projections.sum(TicketItem.PROP_ITEM_COUNT));
 				projectionList.add(Projections.sum(TicketItem.PROP_SUBTOTAL_AMOUNT));
 				projectionList.add(Projections.sum(TicketItem.PROP_DISCOUNT_AMOUNT));
 				criteria.setProjection(projectionList);
-				criteria.add(Restrictions.eq("item." + TicketItem.PROP_CATEGORY_NAME, category.getName()));
+				criteria.add(Restrictions.eq(com.floreantpos.POSConstants.ITEM + "." +
+						  TicketItem.PROP_CATEGORY_NAME, category.getName()));
 				criteria.add(Restrictions.ge("t." + Ticket.PROP_CREATE_DATE, fromDate));
 				criteria.add(Restrictions.le("t." + Ticket.PROP_CREATE_DATE, toDate));
 				criteria.add(Restrictions.eq("t." + Ticket.PROP_PAID, Boolean.TRUE));
@@ -234,7 +204,7 @@ public class ReportService {
 					data = new ServerProductivityReportData();
 					data.setServerName(server.getUserId() + "/" + server.toString());
 					
-					criteria = session.createCriteria(TicketItem.class, "item");
+					criteria = session.createCriteria(TicketItem.class, com.floreantpos.POSConstants.ITEM);
 					criteria.createCriteria(TicketItem.PROP_TICKET, "t");
 					
 					projectionList = Projections.projectionList();
@@ -244,7 +214,8 @@ public class ReportService {
 					projectionList.add(Projections.sum("t." + Ticket.PROP_DISCOUNT_AMOUNT));
 					projectionList.add(Projections.rowCount());
 					
-					criteria.add(Restrictions.eq("item." + TicketItem.PROP_CATEGORY_NAME, category.getName()));
+					criteria.add(Restrictions.eq(com.floreantpos.POSConstants.ITEM + "." +
+							  TicketItem.PROP_CATEGORY_NAME, category.getName()));
 					criteria.add(Restrictions.ge("t." + Ticket.PROP_CREATE_DATE, fromDate));
 					criteria.add(Restrictions.le("t." + Ticket.PROP_CREATE_DATE, toDate));
 					criteria.add(Restrictions.eq("t." + Ticket.PROP_OWNER, server));
