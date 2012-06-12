@@ -1,11 +1,11 @@
 package com.floreantpos.report;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.floreantpos.POSConstants;
 import com.floreantpos.bo.ui.explorer.ListTableModel;
 import com.floreantpos.main.Application;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SalesStatistics {
 	private int capacity;
@@ -410,7 +410,7 @@ public class SalesStatistics {
 					"profitCenter",
 					POSConstants.CHECK,
 					POSConstants.GUEST,
-					POSConstants.ENTER,
+					POSConstants.ENTRE,
 					POSConstants.SALES,
 					POSConstants.AVGCHK,
 					POSConstants.AVERAGE_GUEST,
