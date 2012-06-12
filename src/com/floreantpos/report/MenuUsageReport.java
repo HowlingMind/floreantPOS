@@ -1,11 +1,11 @@
 package com.floreantpos.report;
 
+import com.floreantpos.bo.ui.explorer.ListTableModel;
+import com.floreantpos.main.Application;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import com.floreantpos.bo.ui.explorer.ListTableModel;
-import com.floreantpos.main.Application;
 
 public class MenuUsageReport {
 	private Date fromDate;
@@ -139,6 +139,11 @@ public class MenuUsageReport {
 		public void calculate() {
 			netSales = grossSales - discount;
 			profit = netSales;
+			if (count > 0)
+			{
+				avgSales = grossSales / count;
+			}
+			else { avgSales = 0; }
 		}
 	}
 
@@ -167,7 +172,7 @@ public class MenuUsageReport {
 			case 4:
 				return Application.formatNumber(data.getNetSales());
 			case 5:
-				return " ";//Application.formatNumber(data.getAvgSales());
+				return Application.formatNumber(data.getAvgSales()); //return " ";
 			case 6:
 				return Application.formatNumber(data.getProfit());
 			case 7:
