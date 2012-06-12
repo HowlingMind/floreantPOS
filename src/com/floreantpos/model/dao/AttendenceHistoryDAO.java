@@ -152,7 +152,7 @@ public class AttendenceHistoryDAO extends BaseAttendenceHistoryDAO {
 			
 			return list;
 		} catch (Exception e) {
-			throw new PosException("Unnable to payroll", e);
+			throw new PosException("Unable to payroll", e);
 		} finally {
 			if (session != null) {
 				session.close();
