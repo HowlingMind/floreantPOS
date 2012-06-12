@@ -81,7 +81,7 @@ public class Application {
 
 	private void setApplicationLook() {
 		try {
-			PlasticXPLookAndFeel.setMyCurrentTheme(new ExperienceBlue());
+			PlasticXPLookAndFeel.setPlasticTheme(new ExperienceBlue());
 			UIManager.setLookAndFeel(new PlasticXPLookAndFeel());
 			UIManager.put("ComboBox.is3DEnabled", Boolean.FALSE);
 		} catch (Exception ignored) {
