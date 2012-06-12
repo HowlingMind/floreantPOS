@@ -1,15 +1,11 @@
 package com.floreantpos.report;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.floreantpos.bo.ui.explorer.ListTableModel;
 import com.floreantpos.model.CouponAndDiscount;
 import com.floreantpos.model.Ticket;
 import com.floreantpos.model.TicketCouponAndDiscount;
+
+import java.util.*;
 
 public class SalesExceptionReport {
 	private Date fromDate;
@@ -256,7 +252,7 @@ public class SalesExceptionReport {
 
 	public class VoidTableModel extends ListTableModel {
 		public VoidTableModel() {
-			setColumnNames(new String[] { "code", "reason", "wast", com.floreantpos.POSConstants.QTY, com.floreantpos.POSConstants.AMOUNT });
+			setColumnNames(new String[] { "code", "reason", "wast", "qty", "amount" });
 		}
 
 		public Object getValueAt(int rowIndex, int columnIndex) {
@@ -286,7 +282,7 @@ public class SalesExceptionReport {
 
 	public class DiscountTableModel extends ListTableModel {
 		public DiscountTableModel() {
-			setColumnNames(new String[] { "no", com.floreantpos.POSConstants.NAME, "code", "totalCount", "totalDiscount", "totalNetSales", "totalGuests", "partySize", "checkSize", "countPercent", "ratioDnet" });
+			setColumnNames(new String[] { "no", "name", "code", "totalCount", "totalDiscount", "totalNetSales", "totalGuests", "partySize", "checkSize", "countPercent", "ratioDnet" });
 		}
 
 		public Object getValueAt(int rowIndex, int columnIndex) {
