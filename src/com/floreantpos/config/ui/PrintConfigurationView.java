@@ -13,7 +13,10 @@ package com.floreantpos.config.ui;
 
 import com.floreantpos.config.ApplicationConfig;
 import com.floreantpos.config.PrintConfig;
+import com.floreantpos.dal.PosSessionFactory;
+import com.floreantpos.model.PrinterConfiguration;
 import com.floreantpos.print.PrinterType;
+import org.hibernate.Session;
 
 import javax.print.PrintService;
 import javax.print.PrintServiceLookup;
@@ -26,9 +29,24 @@ import java.awt.*;
  */
 public class PrintConfigurationView extends ConfigurationView {
 
+	private PrinterConfiguration printerConfiguration;
+	private Session currentSession;
+
 	/** Creates new form PrintConfiguration */
 	public PrintConfigurationView() {
+		currentSession = PosSessionFactory.currentSession();
 		initComponents();
+
+		printerConfiguration = (PrinterConfiguration) currentSession.get(PrinterConfiguration.class,
+				  1);
+		if (printerConfiguration == null)
+		{
+			currentSession.beginTransaction();
+			//don't have one in the DB yet!
+			printerConfiguration = new PrinterConfiguration(1);
+			currentSession.save("PrinterConfiguration",printerConfiguration);
+			currentSession.getTransaction().commit();
+		}
 	}
 
 	@Override
@@ -60,11 +78,16 @@ public class PrintConfigurationView extends ConfigurationView {
 		setSelectedPrinter(cbReceiptPrinterName, PrintConfig.P_OS_PRINTER_FOR_RECEIPT);
 		setSelectedPrinter(cbKitchenPrinterName, PrintConfig.P_OS_PRINTER_FOR_KITCHEN);
 		
-		chkPrintReceiptWhenTicketSettled.setSelected(ApplicationConfig.getBoolean(PrintConfig.P_PRINT_RECEIPT_WHEN_SETTELED, true));
+		/*chkPrintReceiptWhenTicketCreated.setSelected(ApplicationConfig.getBoolean(PrintConfig.P_PRINT_RECEIPT_WHEN_SETTELED, true));
 		chkPrintReceiptWhenTicketPaid.setSelected(ApplicationConfig.getBoolean(PrintConfig.P_PRINT_RECEIPT_WHEN_PAID, false));
-		chkPrintKitchenWhenTicketSettled.setSelected(ApplicationConfig.getBoolean(PrintConfig.P_PRINT_KITCHEN_WHEN_SETTELED, false));
-		chkPrintKitchenWhenTicketPaid.setSelected(ApplicationConfig.getBoolean(PrintConfig.P_PRINT_KITCHEN_WHEN_PAID, false));
-		
+		chkPrintKitchenWhenTicketCreated.setSelected(ApplicationConfig.getBoolean(PrintConfig.P_PRINT_KITCHEN_WHEN_SETTELED, false));
+		chkPrintKitchenWhenTicketPaid.setSelected(ApplicationConfig.getBoolean(PrintConfig.P_PRINT_KITCHEN_WHEN_PAID, false));*/
+
+		chkPrintReceiptWhenTicketCreated.setSelected(printerConfiguration.isPrintReceiptWhenTicketCreated());
+		chkPrintReceiptWhenTicketPaid.setSelected(printerConfiguration.isPrintReceiptWhenTicketPaid());
+		chkPrintKitchenWhenTicketPaid.setSelected(printerConfiguration.isPrintKitchenWhenTicketPaid());
+		chkPrintKitchenWhenTicketCreated.setSelected(printerConfiguration.isPrintKitchenWhenTicketCreated());
+
 		setInitialized(true);
 	}
 
@@ -84,21 +107,34 @@ public class PrintConfigurationView extends ConfigurationView {
 
 	@Override
 	public boolean save() throws Exception {
+		currentSession = PosSessionFactory.currentSession();
+		currentSession.beginTransaction();
 		ApplicationConfig.put(PrintConfig.P_RECEIPT_PRINTER_TYPE, cbReceiptPrinterType.getSelectedItem().toString());
 		ApplicationConfig.put(PrintConfig.P_KITCHEN_PRINTER_TYPE, cbKitchenPrinterType.getSelectedItem().toString());
 		
 		PrintService printService = (PrintService) cbReceiptPrinterName.getSelectedItem();
-		ApplicationConfig.put(PrintConfig.P_OS_PRINTER_FOR_RECEIPT, printService == null ? null : printService.getName());
+		//ApplicationConfig.put(PrintConfig.P_OS_PRINTER_FOR_RECEIPT, printService == null ? null : printService.getName());
+		printerConfiguration.setReceiptPrinterName(printService == null ? null : printService.getName());
 		printService = (PrintService) cbKitchenPrinterName.getSelectedItem();
-		ApplicationConfig.put(PrintConfig.P_OS_PRINTER_FOR_KITCHEN, printService == null ? null : printService.getName());
+		printerConfiguration.setKitchenPrinterName(printService == null ? null : printService.getName());
+
 		ApplicationConfig.put(PrintConfig.P_JAVAPOS_PRINTER_FOR_RECEIPT, tfReceiptPrinterName.getText());
 		ApplicationConfig.put(PrintConfig.P_CASH_DRAWER_NAME, tfReceiptCashDrawerName.getText());
 		ApplicationConfig.put(PrintConfig.P_JAVAPOS_PRINTER_FOR_KITCHEN, tfKitchenPrinterName.getText());
-		ApplicationConfig.put(PrintConfig.P_PRINT_KITCHEN_WHEN_PAID, chkPrintKitchenWhenTicketPaid.isSelected());
-		ApplicationConfig.put(PrintConfig.P_PRINT_KITCHEN_WHEN_SETTELED, chkPrintKitchenWhenTicketSettled.isSelected());
-		ApplicationConfig.put(PrintConfig.P_PRINT_RECEIPT_WHEN_PAID, chkPrintReceiptWhenTicketPaid.isSelected());
-		ApplicationConfig.put(PrintConfig.P_PRINT_RECEIPT_WHEN_SETTELED, chkPrintReceiptWhenTicketSettled.isSelected());
-		
+
+		//ApplicationConfig.put(PrintConfig.P_PRINT_KITCHEN_WHEN_PAID, chkPrintKitchenWhenTicketPaid.isSelected());
+		//ApplicationConfig.put(PrintConfig.P_PRINT_KITCHEN_WHEN_SETTELED, chkPrintKitchenWhenTicketCreated.isSelected());
+		//ApplicationConfig.put(PrintConfig.P_PRINT_RECEIPT_WHEN_PAID, chkPrintReceiptWhenTicketPaid.isSelected());
+		//ApplicationConfig.put(PrintConfig.P_PRINT_RECEIPT_WHEN_SETTELED, chkPrintReceiptWhenTicketCreated.isSelected());
+
+		printerConfiguration.setPrintKitchenWhenTicketPaid(chkPrintKitchenWhenTicketPaid.isSelected());
+		printerConfiguration.setPrintKitchenWhenTicketCreated(chkPrintKitchenWhenTicketCreated.isSelected());
+		printerConfiguration.setPrintReceiptWhenTicketPaid(chkPrintReceiptWhenTicketPaid.isSelected());
+		printerConfiguration.setPrintReceiptWhenTicketCreated(chkPrintReceiptWhenTicketCreated.isSelected());
+
+		//Persist to the database
+		currentSession.saveOrUpdate(printerConfiguration);
+		currentSession.getTransaction().commit();
 		return true;
 	}
 
@@ -165,9 +201,9 @@ public class PrintConfigurationView extends ConfigurationView {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        chkPrintReceiptWhenTicketSettled = new javax.swing.JCheckBox();
+        chkPrintReceiptWhenTicketCreated = new javax.swing.JCheckBox();
         chkPrintReceiptWhenTicketPaid = new javax.swing.JCheckBox();
-        chkPrintKitchenWhenTicketSettled = new javax.swing.JCheckBox();
+        chkPrintKitchenWhenTicketCreated = new javax.swing.JCheckBox();
         chkPrintKitchenWhenTicketPaid = new javax.swing.JCheckBox();
         jPanel1 = new javax.swing.JPanel();
         lblReceiptCashDrawerName = new javax.swing.JLabel();
@@ -186,11 +222,11 @@ public class PrintConfigurationView extends ConfigurationView {
         javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
         lblSelectKitchenPrinter = new javax.swing.JLabel();
 
-        chkPrintReceiptWhenTicketSettled.setText(com.floreantpos.POSConstants.PRINT_RECEIPT_WHEN_TICKET_CREATED);
+        chkPrintReceiptWhenTicketCreated.setText(com.floreantpos.POSConstants.PRINT_RECEIPT_WHEN_TICKET_CREATED);
 
         chkPrintReceiptWhenTicketPaid.setText(com.floreantpos.POSConstants.PRINT_RECEIPT_WHEN_TICKET_PAID);
 
-        chkPrintKitchenWhenTicketSettled.setText(com.floreantpos.POSConstants.PRINT_TO_KITCHEN_WHEN_TICKET_CREATED);
+        chkPrintKitchenWhenTicketCreated.setText(com.floreantpos.POSConstants.PRINT_TO_KITCHEN_WHEN_TICKET_CREATED);
 
         chkPrintKitchenWhenTicketPaid.setText(com.floreantpos.POSConstants.PRINT_TO_KITCHEN_WHEN_TICKET_PAID);
 
@@ -328,9 +364,9 @@ public class PrintConfigurationView extends ConfigurationView {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(102, 102, 102)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(chkPrintReceiptWhenTicketSettled)
+                            .addComponent(chkPrintReceiptWhenTicketCreated)
                             .addComponent(chkPrintReceiptWhenTicketPaid)
-                            .addComponent(chkPrintKitchenWhenTicketSettled)
+                            .addComponent(chkPrintKitchenWhenTicketCreated)
                             .addComponent(chkPrintKitchenWhenTicketPaid))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -342,11 +378,11 @@ public class PrintConfigurationView extends ConfigurationView {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(chkPrintReceiptWhenTicketSettled)
+                .addComponent(chkPrintReceiptWhenTicketCreated)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(chkPrintReceiptWhenTicketPaid)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(chkPrintKitchenWhenTicketSettled)
+                .addComponent(chkPrintKitchenWhenTicketCreated)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(chkPrintKitchenWhenTicketPaid)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -359,9 +395,9 @@ public class PrintConfigurationView extends ConfigurationView {
     private javax.swing.JComboBox cbReceiptPrinterName;
     private javax.swing.JComboBox cbReceiptPrinterType;
     private javax.swing.JCheckBox chkPrintKitchenWhenTicketPaid;
-    private javax.swing.JCheckBox chkPrintKitchenWhenTicketSettled;
+    private javax.swing.JCheckBox chkPrintKitchenWhenTicketCreated;
     private javax.swing.JCheckBox chkPrintReceiptWhenTicketPaid;
-    private javax.swing.JCheckBox chkPrintReceiptWhenTicketSettled;
+    private javax.swing.JCheckBox chkPrintReceiptWhenTicketCreated;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblKitchenPrinterName;

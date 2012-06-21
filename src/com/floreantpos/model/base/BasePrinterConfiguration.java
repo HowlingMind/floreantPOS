@@ -18,10 +18,10 @@ public abstract class BasePrinterConfiguration  implements Comparable, Serializa
 	public static String REF = "PrinterConfiguration";
 	public static String PROP_USE_NORMAL_PRINTER_FOR_TICKET = "useNormalPrinterForTicket";
 	public static String PROP_USE_NORMAL_PRINTER_FOR_KITCHEN = "useNormalPrinterForKitchen";
-	public static String PROP_PRINT_KITCHEN_WHEN_TICKET_SETTLED = "printKitchenWhenTicketSettled";
+	public static String PROP_PRINT_KITCHEN_WHEN_TICKET_SETTLED = "printKitchenWhenTicketCreated";
 	public static String PROP_RECEIPT_PRINTER_NAME = "receiptPrinterName";
 	public static String PROP_PRINT_RECEIPT_WHEN_TICKET_PAID = "printReceiptWhenTicketPaid";
-	public static String PROP_PRINT_RECREIPT_WHEN_TICKET_SETTLED = "printRecreiptWhenTicketSettled";
+	public static String PROP_PRINT_RECREIPT_WHEN_TICKET_SETTLED = "printReceiptWhenTicketCreated";
 	public static String PROP_PRINT_KITCHEN_WHEN_TICKET_PAID = "printKitchenWhenTicketPaid";
 	public static String PROP_ID = "id";
 	public static String PROP_KITCHEN_PRINTER_NAME = "kitchenPrinterName";
@@ -52,12 +52,13 @@ public abstract class BasePrinterConfiguration  implements Comparable, Serializa
 	// fields
 	private java.lang.String receiptPrinterName;
 	private java.lang.String kitchenPrinterName;
-	private java.lang.Boolean printRecreiptWhenTicketSettled;
-	private java.lang.Boolean printKitchenWhenTicketSettled;
+	private java.lang.Boolean printReceiptWhenTicketCreated;
+	private java.lang.Boolean printKitchenWhenTicketCreated;
 	private java.lang.Boolean printReceiptWhenTicketPaid;
 	private java.lang.Boolean printKitchenWhenTicketPaid;
 	private java.lang.Boolean useNormalPrinterForTicket;
 	private java.lang.Boolean useNormalPrinterForKitchen;
+	private Boolean printTwoKitchenTickets;
 
 
 
@@ -120,23 +121,23 @@ public abstract class BasePrinterConfiguration  implements Comparable, Serializa
 	/**
 	 * Return the value associated with the column: PRWTS
 	 */
-	public java.lang.Boolean isPrintRecreiptWhenTicketSettled () {
-					return printRecreiptWhenTicketSettled == null ? Boolean.valueOf(true) : printRecreiptWhenTicketSettled;
+	public java.lang.Boolean isPrintReceiptWhenTicketCreated() {
+					return printReceiptWhenTicketCreated == null ? Boolean.valueOf(true) : printReceiptWhenTicketCreated;
 			}
 
 	/**
 	 * Set the value related to the column: PRWTS
-	 * @param printRecreiptWhenTicketSettled the PRWTS value
+	 * @param printReceiptWhenTicketSettled the PRWTS value
 	 */
-	public void setPrintRecreiptWhenTicketSettled (java.lang.Boolean printRecreiptWhenTicketSettled) {
-		this.printRecreiptWhenTicketSettled = printRecreiptWhenTicketSettled;
+	public void setPrintReceiptWhenTicketCreated(java.lang.Boolean printReceiptWhenTicketSettled) {
+		this.printReceiptWhenTicketCreated = printReceiptWhenTicketSettled;
 	}
 
 
 	/**
 	 * Custom property
 	 */
-	public static String getPrintRecreiptWhenTicketSettledDefaultValue () {
+	public static String getPrintReceiptWhenTicketCreatedDefaultValue() {
 		return "true";
 	}
 
@@ -144,23 +145,23 @@ public abstract class BasePrinterConfiguration  implements Comparable, Serializa
 	/**
 	 * Return the value associated with the column: PRWTP
 	 */
-	public java.lang.Boolean isPrintKitchenWhenTicketSettled () {
-					return printKitchenWhenTicketSettled == null ? Boolean.valueOf(true) : printKitchenWhenTicketSettled;
+	public java.lang.Boolean isPrintKitchenWhenTicketCreated() {
+					return printKitchenWhenTicketCreated == null ? Boolean.valueOf(true) : printKitchenWhenTicketCreated;
 			}
 
 	/**
 	 * Set the value related to the column: PRWTP
-	 * @param printKitchenWhenTicketSettled the PRWTP value
+	 * @param printKitchenWhenTicketCreated the PRWTP value
 	 */
-	public void setPrintKitchenWhenTicketSettled (java.lang.Boolean printKitchenWhenTicketSettled) {
-		this.printKitchenWhenTicketSettled = printKitchenWhenTicketSettled;
+	public void setPrintKitchenWhenTicketCreated(java.lang.Boolean printKitchenWhenTicketCreated) {
+		this.printKitchenWhenTicketCreated = printKitchenWhenTicketCreated;
 	}
 
 
 	/**
 	 * Custom property
 	 */
-	public static String getPrintKitchenWhenTicketSettledDefaultValue () {
+	public static String getPrintKitchenWhenTicketCreatedDefaultValue() {
 		return "true";
 	}
 
@@ -295,4 +296,11 @@ public abstract class BasePrinterConfiguration  implements Comparable, Serializa
 	}
 
 
+	public Boolean isPrintTwoKitchenTickets() {
+		return printTwoKitchenTickets;
+	}
+
+	public void setPrintTwoKitchenTickets(Boolean printTwoKitchenTickets) {
+		this.printTwoKitchenTickets = printTwoKitchenTickets;
+	}
 }
