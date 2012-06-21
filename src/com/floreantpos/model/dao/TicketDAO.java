@@ -1,10 +1,8 @@
 package com.floreantpos.model.dao;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-
+import com.floreantpos.dal.PosSessionFactory;
+import com.floreantpos.model.*;
+import com.floreantpos.model.util.TicketSummary;
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
@@ -13,15 +11,10 @@ import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
-import com.floreantpos.model.Gratuity;
-import com.floreantpos.model.PosTransaction;
-import com.floreantpos.model.Shift;
-import com.floreantpos.model.Terminal;
-import com.floreantpos.model.Ticket;
-import com.floreantpos.model.TicketItem;
-import com.floreantpos.model.TicketItemModifierGroup;
-import com.floreantpos.model.User;
-import com.floreantpos.model.util.TicketSummary;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 public class TicketDAO extends BaseTicketDAO {
 	private final static TicketDAO instance = new TicketDAO();
@@ -147,7 +140,8 @@ public class TicketDAO extends BaseTicketDAO {
 		Session session = null;
 
 		try {
-			session = getSession();
+			//session = getSession();
+			session = PosSessionFactory.currentSession();
 			Criteria criteria = session.createCriteria(getReferenceClass());
 			criteria.add(Restrictions.eq(Ticket.PROP_CLOSED, Boolean.FALSE));
 			List list = criteria.list();
