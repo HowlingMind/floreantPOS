@@ -6,14 +6,6 @@
 
 package com.floreantpos.ui.views;
 
-import java.awt.event.ActionEvent;
-import java.util.Calendar;
-import java.util.Date;
-
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.JPanel;
-
 import com.floreantpos.POSConstants;
 import com.floreantpos.config.ui.DatabaseConfigurationDialog;
 import com.floreantpos.main.Application;
@@ -25,6 +17,12 @@ import com.floreantpos.model.dao.UserDAO;
 import com.floreantpos.swing.MessageDialog;
 import com.floreantpos.ui.dialog.POSMessageDialog;
 import com.floreantpos.util.ShiftUtil;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * 
@@ -218,6 +216,14 @@ public class PasswordScreen extends JPanel {
 		btnLogin.setFocusable(false);
 		jPanel3.add(btnLogin);
 		jPanel3.add(jLabel3);
+		btnLogin.registerKeyboardAction(btnLogin.getActionForKeyStroke(
+				  KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, false)),
+		        KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false),
+				  JComponent.WHEN_IN_FOCUSED_WINDOW);
+		btnLogin.registerKeyboardAction(btnLogin.getActionForKeyStroke(
+						  KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, true)),
+				        KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, true),
+						  JComponent.WHEN_IN_FOCUSED_WINDOW);
 
 		btnShutdown.setAction(goAction);
 		btnShutdown.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/shut_down_32.png"))); // NOI18N
