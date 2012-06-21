@@ -3,6 +3,7 @@ package com.floreantpos.main;
 import com.floreantpos.bo.ui.BackOfficeWindow;
 import com.floreantpos.config.ApplicationConfig;
 import com.floreantpos.config.ui.DatabaseConfigurationDialog;
+import com.floreantpos.dal.PosSessionFactory;
 import com.floreantpos.model.*;
 import com.floreantpos.model.dao.PrinterConfigurationDAO;
 import com.floreantpos.model.dao.RestaurantDAO;
@@ -207,6 +208,11 @@ public class Application {
 		ApplicationConfig.getPreferences().putInt("wlocx", locationOnScreen.x);
 		ApplicationConfig.getPreferences().putInt("wlocy", locationOnScreen.y);
 
+		//Save the session!
+		PosSessionFactory.currentSession().flush();
+		PosSessionFactory.closeSession();
+
+
 		System.exit(0);
 	}
 
@@ -256,9 +262,9 @@ public class Application {
 		return terminal;
 	}
 
-//	public static PrinterConfiguration getPrinterConfiguration() {
-//		return getInstance().printConfiguration;
-//	}
+	public static PrinterConfiguration getPrinterConfiguration() {
+		return getInstance().printConfiguration;
+	}
 
 	public static String formatNumber(Double number) {
 		if(number == null) {
