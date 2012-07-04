@@ -31,7 +31,7 @@ public class KitchenTicketDataSource extends AbstractReportDataSource {
 					Row row1 = new Row(ticketItem.getItemCount(), ticketItem.getName(), ticketItem.getId());
 					rows.add(row1);
 				}
-				ticketItem.setPrintedToKitchen(true);
+				//ticketItem.setPrintedToKitchen(true);
 				
 				List<TicketItemModifierGroup> modifierGroups = ticketItem.getTicketItemModifierGroups();
 				if (modifierGroups != null) {
@@ -73,10 +73,16 @@ public class KitchenTicketDataSource extends AbstractReportDataSource {
 						}
 					}
 				}
-
+				//Add a 'blank' row to help separate the dishes
+				if(ticketItem.isShouldPrintToKitchen() && !ticketItem.isPrintedToKitchen()) {
+					Row blankRow = new Row("--------------------------------------------------", 0);
+					rows.add(blankRow);
+				}
+				ticketItem.setPrintedToKitchen(true);
 			}
 		}
-		
+		//Remove the last blank row, because it looks silly
+		rows.remove(rows.size()-1);
 		setRows(rows);
 	}
 
