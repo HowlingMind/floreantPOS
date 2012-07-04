@@ -1,30 +1,19 @@
 package com.floreantpos.jreports;
 
+import com.floreantpos.main.Application;
+import com.floreantpos.model.*;
+import com.floreantpos.model.dao.RestaurantDAO;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRTableModelDataSource;
+import net.sf.jasperreports.engine.print.JRPrinterAWT;
+import net.sf.jasperreports.engine.util.JRLoader;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import java.io.InputStream;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperPrintManager;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.data.JRTableModelDataSource;
-import net.sf.jasperreports.engine.print.JRPrinterAWT;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-import com.floreantpos.main.Application;
-import com.floreantpos.model.Restaurant;
-import com.floreantpos.model.Ticket;
-import com.floreantpos.model.TicketItem;
-import com.floreantpos.model.TicketItemModifier;
-import com.floreantpos.model.TicketItemModifierGroup;
-import com.floreantpos.model.dao.RestaurantDAO;
 
 public class JReportPrintService {
 	private static Log logger = LogFactory.getLog(JReportPrintService.class);
@@ -96,6 +85,10 @@ public class JReportPrintService {
 
 			JRPrinterAWT.printToKitchen = true;
 			JasperPrintManager.printReport(jasperPrint, false);
+
+			if (PrinterConfiguration.printerConfiguration().isPrintTwoKitchenTickets()) {
+				JasperPrintManager.printReport(jasperPrint, false);
+			}
 
 			//no exception, so print to kitchen successful.
 			//now mark items as printed.
