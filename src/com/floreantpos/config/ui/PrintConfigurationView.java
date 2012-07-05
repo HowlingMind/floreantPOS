@@ -87,7 +87,7 @@ public class PrintConfigurationView extends ConfigurationView {
 		chkPrintReceiptWhenTicketPaid.setSelected(printerConfiguration.isPrintReceiptWhenTicketPaid());
 		chkPrintKitchenWhenTicketPaid.setSelected(printerConfiguration.isPrintKitchenWhenTicketPaid());
 		chkPrintKitchenWhenTicketCreated.setSelected(printerConfiguration.isPrintKitchenWhenTicketCreated());
-
+		chkPreviewInsteadOfPrint.setSelected(printerConfiguration.isPrintPreviewInsteadOfPrint());
 		chkPrintTwoKitchenTickets.setSelected(printerConfiguration.isPrintTwoKitchenTickets());
 
 		setInitialized(true);
@@ -133,7 +133,7 @@ public class PrintConfigurationView extends ConfigurationView {
 		printerConfiguration.setPrintKitchenWhenTicketCreated(chkPrintKitchenWhenTicketCreated.isSelected());
 		printerConfiguration.setPrintReceiptWhenTicketPaid(chkPrintReceiptWhenTicketPaid.isSelected());
 		printerConfiguration.setPrintReceiptWhenTicketCreated(chkPrintReceiptWhenTicketCreated.isSelected());
-
+		printerConfiguration.setPrintPreviewInsteadOfPrint(chkPreviewInsteadOfPrint.isSelected());
 		printerConfiguration.setPrintTwoKitchenTickets(chkPrintTwoKitchenTickets.isSelected());
 
 		//Persist to the database
@@ -227,6 +227,7 @@ public class PrintConfigurationView extends ConfigurationView {
         lblSelectKitchenPrinter = new javax.swing.JLabel();
         chkPrintTwoKitchenTickets = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
+        chkPreviewInsteadOfPrint = new javax.swing.JCheckBox();
 
         chkPrintReceiptWhenTicketCreated.setText("Print receipt when ticket created");
 
@@ -361,6 +362,8 @@ public class PrintConfigurationView extends ConfigurationView {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Changes require restart of all POS instances");
 
+        chkPreviewInsteadOfPrint.setText("Print preview instead printing");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -378,10 +381,13 @@ public class PrintConfigurationView extends ConfigurationView {
                             .addComponent(chkPrintReceiptWhenTicketCreated)
                             .addComponent(chkPrintReceiptWhenTicketPaid)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(chkPrintKitchenWhenTicketCreated)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(chkPrintKitchenWhenTicketCreated)
+                                    .addComponent(chkPrintKitchenWhenTicketPaid))
                                 .addGap(18, 18, 18)
-                                .addComponent(chkPrintTwoKitchenTickets))
-                            .addComponent(chkPrintKitchenWhenTicketPaid)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(chkPreviewInsteadOfPrint)
+                                    .addComponent(chkPrintTwoKitchenTickets)))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel3)))
@@ -395,7 +401,9 @@ public class PrintConfigurationView extends ConfigurationView {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(chkPrintReceiptWhenTicketCreated)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chkPrintReceiptWhenTicketCreated)
+                    .addComponent(chkPreviewInsteadOfPrint))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(chkPrintReceiptWhenTicketPaid)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -415,6 +423,7 @@ public class PrintConfigurationView extends ConfigurationView {
     private javax.swing.JComboBox cbKitchenPrinterType;
     private javax.swing.JComboBox cbReceiptPrinterName;
     private javax.swing.JComboBox cbReceiptPrinterType;
+    private javax.swing.JCheckBox chkPreviewInsteadOfPrint;
     private javax.swing.JCheckBox chkPrintKitchenWhenTicketCreated;
     private javax.swing.JCheckBox chkPrintKitchenWhenTicketPaid;
     private javax.swing.JCheckBox chkPrintReceiptWhenTicketCreated;

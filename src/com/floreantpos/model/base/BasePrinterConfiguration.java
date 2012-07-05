@@ -58,7 +58,8 @@ public abstract class BasePrinterConfiguration  implements Comparable, Serializa
 	private java.lang.Boolean printKitchenWhenTicketPaid;
 	private java.lang.Boolean useNormalPrinterForTicket;
 	private java.lang.Boolean useNormalPrinterForKitchen;
-	private Boolean printTwoKitchenTickets;
+	private Boolean printTwoKitchenTickets = false;
+	private Boolean printPreviewInsteadOfPrint = false;
 
 
 
@@ -297,10 +298,30 @@ public abstract class BasePrinterConfiguration  implements Comparable, Serializa
 
 
 	public Boolean isPrintTwoKitchenTickets() {
+		if (printTwoKitchenTickets == null) {
+			return getPrintTwoKitchenTicketsDefaultValue();
+		}
 		return printTwoKitchenTickets;
 	}
 
 	public void setPrintTwoKitchenTickets(Boolean printTwoKitchenTickets) {
 		this.printTwoKitchenTickets = printTwoKitchenTickets;
+	}
+	public Boolean getPrintTwoKitchenTicketsDefaultValue() {
+			return false;
+		}
+
+	public Boolean isPrintPreviewInsteadOfPrint() {
+		if (printPreviewInsteadOfPrint == null) {
+			return getPrintPreviewInsteadOfPrintDefaultValue();
+		}
+		return printPreviewInsteadOfPrint;
+	}
+
+	public Boolean getPrintPreviewInsteadOfPrintDefaultValue() {
+		return false;
+	}
+	public void setPrintPreviewInsteadOfPrint(Boolean printPreviewInsteadOfPrint) {
+		this.printPreviewInsteadOfPrint = printPreviewInsteadOfPrint;
 	}
 }

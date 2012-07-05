@@ -29,5 +29,8 @@
 		<property column="P2KR" name="printTwoKitchenTickets" type="java.lang.Boolean">
 			<meta attribute="defaultValue">false</meta>
 		</property>
+		<property  name="printPreviewInsteadOfPrint" type="java.lang.Boolean">
+			<column name="PPIOP" default="false"/>
+		</property>
 	</class>
 </hibernate-mapping>

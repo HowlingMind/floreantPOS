@@ -31,11 +31,16 @@
                           <Component id="chkPrintReceiptWhenTicketCreated" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="chkPrintReceiptWhenTicketPaid" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="chkPrintKitchenWhenTicketCreated" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="chkPrintKitchenWhenTicketCreated" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chkPrintKitchenWhenTicketPaid" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="chkPrintTwoKitchenTickets" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="chkPreviewInsteadOfPrint" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chkPrintTwoKitchenTickets" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Component id="chkPrintKitchenWhenTicketPaid" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -55,7 +60,10 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="chkPrintReceiptWhenTicketCreated" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="chkPrintReceiptWhenTicketCreated" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkPreviewInsteadOfPrint" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="chkPrintReceiptWhenTicketPaid" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -316,6 +324,11 @@
           <Font name="Tahoma" size="12" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Changes require restart of all POS instances"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="chkPreviewInsteadOfPrint">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Print preview instead printing"/>
       </Properties>
     </Component>
   </SubComponents>
