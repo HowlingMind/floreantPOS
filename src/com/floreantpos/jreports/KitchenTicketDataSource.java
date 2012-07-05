@@ -75,7 +75,7 @@ public class KitchenTicketDataSource extends AbstractReportDataSource {
 				}
 				//Add a 'blank' row to help separate the dishes
 				if(ticketItem.isShouldPrintToKitchen() && !ticketItem.isPrintedToKitchen()) {
-					Row blankRow = new Row("--------------------------------------------------", 0);
+					Row blankRow = new Row(0,"--------------------------------------------------", 0);
 					rows.add(blankRow);
 				}
 				ticketItem.setPrintedToKitchen(true);
