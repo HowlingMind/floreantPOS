@@ -1,13 +1,13 @@
 package com.floreantpos.jreports;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.floreantpos.main.Application;
 import com.floreantpos.model.Ticket;
 import com.floreantpos.model.TicketItem;
 import com.floreantpos.model.TicketItemModifier;
 import com.floreantpos.model.TicketItemModifierGroup;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class TicketDataSource extends AbstractReportDataSource {
@@ -41,10 +41,25 @@ public class TicketDataSource extends AbstractReportDataSource {
 									continue;
 								}
 								boolean extra = false;
-								String name = " - " + modifier.getName();
+								String modifierGroupName = modifierGroup.getName();
+								if (modifierGroupName == null) {
+									modifierGroupName = "";
+								}
+								String name = modifier.getName();
+								String tabSpacing = "    ";
+								if ((modifierGroupName.equalsIgnoreCase("Toppings")) || (modifierGroupName.equalsIgnoreCase("Condiments"))) {
+									tabSpacing += "  ";
+								}
 								if (modifier.getModifierType() == TicketItemModifier.EXTRA_MODIFIER) {
-									name = " - Extra " + name;
-									extra = true;
+									name = tabSpacing + "++ Extra " + name;
+								} else 	if (modifier.getModifierType() == TicketItemModifier.NO_MODIFIER) {
+									//Make sure that "NO" gets added to the no modifier
+									name = tabSpacing + "- NO " + name;
+								}else if (modifierGroupName.equalsIgnoreCase("Special Instructions")) {
+									name = tabSpacing + "%% " + name + "%%";
+								}else
+								{
+									name = tabSpacing + "+ " + name;
 								}
 								row = new Row();
 								row.setItemCount(modifier.getItemCount());
