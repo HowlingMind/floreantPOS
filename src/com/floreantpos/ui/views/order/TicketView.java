@@ -22,6 +22,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Set;
 
 /**
  *
@@ -387,16 +388,35 @@ public class TicketView extends JPanel {
 	}//GEN-LAST:event_doPayNow
 
 	private void doDeleteSelection(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doDeleteSelection
-		Object object = ticketViewerTable.deleteSelectedItem();
-		if (object != null) {
-			updateView();
-
-			if (object instanceof TicketItemModifier) {
-				ModifierView modifierView = OrderView.getInstance().getModifierView();
-				if (modifierView.isVisible()) {
-					modifierView.updateVisualRepresentation();
+		Object itemToDelete = ticketViewerTable.getSelected();
+		boolean canDelete = true;
+		if (itemToDelete instanceof TicketItem) {
+			TicketItem item = (TicketItem) itemToDelete;
+			//If the item has been sent to the kitchen, only allow people with VOID access to delete it
+			if (item.isPrintedToKitchen()){
+				Set<UserPermission> permissions;
+				permissions = Application.getCurrentUser().getNewUserType().getPermissions();
+				
+				if (!permissions.contains(UserPermission.VOID_TICKET)){
+					canDelete = false;
 				}
 			}
+		}
+		if (canDelete){
+			Object object = ticketViewerTable.deleteSelectedItem();
+			if (object != null) {
+				updateView();
+	
+				if (object instanceof TicketItemModifier) {
+					ModifierView modifierView = OrderView.getInstance().getModifierView();
+					if (modifierView.isVisible()) {
+						modifierView.updateVisualRepresentation();
+					}
+				}
+			}
+		}else {
+			//No permissions to delete 
+			POSMessageDialog.showError("Only a manager can delete an item after it has been sent to the kitchen.");
 		}
 
 	}//GEN-LAST:event_doDeleteSelection
