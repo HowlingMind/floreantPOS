@@ -40,43 +40,45 @@ public class TicketDataSource extends AbstractReportDataSource {
 								if (modifier.getTotalAmount() == 0) {
 									continue;
 								}
-								boolean extra = false;
+								row = new Row();
+
 								String modifierGroupName = modifierGroup.getName();
 								if (modifierGroupName == null) {
 									modifierGroupName = "";
 								}
+
 								String name = modifier.getName();
 								String tabSpacing = "    ";
+
 								if ((modifierGroupName.equalsIgnoreCase("Toppings")) || (modifierGroupName.equalsIgnoreCase("Condiments"))) {
 									tabSpacing += "  ";
 								}
+
 								if (modifier.getModifierType() == TicketItemModifier.EXTRA_MODIFIER) {
 									name = tabSpacing + "++ Extra " + name;
+									row.setUnitPrice(modifier.getExtraUnitPrice());
 								} else 	if (modifier.getModifierType() == TicketItemModifier.NO_MODIFIER) {
 									//Make sure that "NO" gets added to the no modifier
 									name = tabSpacing + "- NO " + name;
+									//Don't charge if it's not going on the dish
+									row.setUnitPrice(0.0);
 								}else if (modifierGroupName.equalsIgnoreCase("Special Instructions")) {
 									name = tabSpacing + "%% " + name + "%%";
+									row.setUnitPrice(modifier.getUnitPrice());
 								}else
 								{
 									name = tabSpacing + "+ " + name;
-								}
-								row = new Row();
-								row.setItemCount(modifier.getItemCount());
-								row.setItemName(name);
-								if(extra) {
-									row.setUnitPrice(modifier.getExtraUnitPrice());
-								}
-								else {
 									row.setUnitPrice(modifier.getUnitPrice());
 								}
+
+								row.setItemCount(modifier.getItemCount());
+								row.setItemName(name);
 								row.setSubtotalAmount(modifier.getTotalAmount());
 								rows.add(row);
 							}
 						}
 					}
 				}
-
 			}
 		}
 		
