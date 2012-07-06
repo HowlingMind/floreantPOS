@@ -7,6 +7,7 @@ import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRTableModelDataSource;
 import net.sf.jasperreports.engine.print.JRPrinterAWT;
 import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -50,8 +51,13 @@ public class JReportPrintService {
 			JasperReport ticketReport = (JasperReport) JRLoader.loadObject(ticketReportStream);
 
 			JasperPrint jasperPrint = JasperFillManager.fillReport(ticketReport, map, new JRTableModelDataSource(new TicketDataSource(ticket)));
-			JasperPrintManager.printReport(jasperPrint, false);
 
+			//Preview instead of print?
+			if (PrinterConfiguration.printerConfiguration().isPrintPreviewInsteadOfPrint()) {
+				JasperViewer.viewReport(jasperPrint, false);
+			} else {
+				JasperPrintManager.printReport(jasperPrint, false);
+			}
 		} catch (JRException e) {
 			logger.error(com.floreantpos.POSConstants.PRINT_ERROR, e);
 		} finally {
@@ -81,15 +87,19 @@ public class JReportPrintService {
 			JasperReport ticketReport = (JasperReport) JRLoader.loadObject(ticketReportStream);
 
 			JasperPrint jasperPrint = JasperFillManager.fillReport(ticketReport, map, new JRTableModelDataSource(new KitchenTicketDataSource(ticket)));
-			//JasperViewer.viewReport(jasperPrint, false);
 
 			JRPrinterAWT.printToKitchen = true;
-			JasperPrintManager.printReport(jasperPrint, false);
 
-			if (PrinterConfiguration.printerConfiguration().isPrintTwoKitchenTickets()) {
+			//Preview instead of print?
+			if (PrinterConfiguration.printerConfiguration().isPrintPreviewInsteadOfPrint()) {
+				JasperViewer.viewReport(jasperPrint, false);
+			} else {
 				JasperPrintManager.printReport(jasperPrint, false);
-			}
 
+				if (PrinterConfiguration.printerConfiguration().isPrintTwoKitchenTickets()) {
+					JasperPrintManager.printReport(jasperPrint, false);
+				}
+			}
 			//no exception, so print to kitchen successful.
 			//now mark items as printed.
 			markItemsAsPrinted(ticket);
