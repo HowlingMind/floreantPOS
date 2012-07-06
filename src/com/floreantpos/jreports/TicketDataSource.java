@@ -53,21 +53,22 @@ public class TicketDataSource extends AbstractReportDataSource {
 								if ((modifierGroupName.equalsIgnoreCase("Toppings")) || (modifierGroupName.equalsIgnoreCase("Condiments"))) {
 									tabSpacing += "  ";
 								}
-
+								boolean extra = false;
 								if (modifier.getModifierType() == TicketItemModifier.EXTRA_MODIFIER) {
 									name = tabSpacing + "++ Extra " + name;
 									row.setUnitPrice(modifier.getExtraUnitPrice());
+									extra = true;
 								} else 	if (modifier.getModifierType() == TicketItemModifier.NO_MODIFIER) {
 									//Make sure that "NO" gets added to the no modifier
 									name = tabSpacing + "- NO " + name;
-									//Don't charge if it's not going on the dish
-									row.setUnitPrice(0.0);
 								}else if (modifierGroupName.equalsIgnoreCase("Special Instructions")) {
 									name = tabSpacing + "%% " + name + "%%";
-									row.setUnitPrice(modifier.getUnitPrice());
 								}else
 								{
 									name = tabSpacing + "+ " + name;
+								}
+
+								if (!extra) {
 									row.setUnitPrice(modifier.getUnitPrice());
 								}
 

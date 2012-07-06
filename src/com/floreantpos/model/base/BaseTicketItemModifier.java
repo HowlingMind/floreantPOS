@@ -1,5 +1,7 @@
 package com.floreantpos.model.base;
 
+import com.floreantpos.model.TicketItemModifier;
+
 import java.io.Serializable;
 
 
@@ -130,7 +132,14 @@ public abstract class BaseTicketItemModifier  implements Comparable, Serializabl
 	 * Return the value associated with the column: ITEM_COUNT
 	 */
 	public java.lang.Integer getItemCount () {
-			return itemCount == null ? Integer.valueOf(0) : itemCount;
+			//return itemCount == null ? Integer.valueOf(0) : itemCount;
+		if (itemCount == null || modifierType == TicketItemModifier.NO_MODIFIER)
+		{
+			return 0;
+		}
+		else {
+			return itemCount;
+		}
 	}
 
 	/**
