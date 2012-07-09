@@ -1,14 +1,9 @@
 package com.floreantpos.ui.views;
 
-import java.awt.LayoutManager;
-import java.util.List;
-
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
 import com.floreantpos.POSConstants;
 import com.floreantpos.main.Application;
 import com.floreantpos.model.PosTransaction;
+import com.floreantpos.model.PrinterConfiguration;
 import com.floreantpos.model.Ticket;
 import com.floreantpos.print.PosPrintService;
 import com.floreantpos.services.PosTransactionService;
@@ -17,6 +12,10 @@ import com.floreantpos.ui.dialog.POSMessageDialog;
 import com.floreantpos.ui.dialog.PaymentTypeSelectionDialog;
 import com.floreantpos.ui.dialog.TransactionCompletionDialog;
 import com.floreantpos.ui.views.order.RootView;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.List;
 
 public abstract class PaymentView extends JPanel {
 	protected SettleTicketView settleTicketView;
@@ -136,7 +135,7 @@ public abstract class PaymentView extends JPanel {
 				POSMessageDialog.showError(Application.getPosWindow(), com.floreantpos.POSConstants.PRINT_ERROR, ee);
 			}*/
 			
-			if(Application.getPrinterConfiguration().isPrintReceiptWhenTicketPaid()) {
+			if(PrinterConfiguration.printerConfiguration().isPrintReceiptWhenTicketPaid()) {
 				try {
 					for (Ticket ticket : ticketsToSettle) {
 						PosPrintService.printTicket(ticket);
@@ -146,7 +145,7 @@ public abstract class PaymentView extends JPanel {
 				}
 			}
 			
-			if(Application.getPrinterConfiguration().isPrintKitchenWhenTicketPaid()) {
+			if(PrinterConfiguration.printerConfiguration().isPrintKitchenWhenTicketPaid()) {
 				try {
 					for (Ticket ticket : ticketsToSettle) {
 						if(ticket.needsKitchenPrint()) {

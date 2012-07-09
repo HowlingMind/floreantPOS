@@ -8,7 +8,6 @@ package com.floreantpos.ui.views.order;
 
 import com.floreantpos.POSConstants;
 import com.floreantpos.PosException;
-import com.floreantpos.config.PrintConfig;
 import com.floreantpos.main.Application;
 import com.floreantpos.model.*;
 import com.floreantpos.model.dao.MenuItemDAO;
@@ -348,11 +347,11 @@ public class TicketView extends JPanel {
 
 			OrderController.saveOrder(ticket);
 
-			if (PrintConfig.isPrintReceiptWhenCreated()) {
+			if (PrinterConfiguration.printerConfiguration().isPrintReceiptWhenTicketCreated()) {
 				PosPrintService.printTicket(ticket);
 			}
 
-			if (PrintConfig.isPrintKitchenWhenCreated()) {
+			if (PrinterConfiguration.printerConfiguration().isPrintKitchenWhenTicketCreated()) {
 				if (ticket.needsKitchenPrint()) {
 					PosPrintService.printToKitchen(ticket);
 				}
