@@ -1,4 +1,5 @@
 package com.floreantpos.dal;
+import com.floreantpos.config.ApplicationConfig;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
@@ -6,7 +7,7 @@ import org.hibernate.cfg.Configuration;
 /**
  * Configures and provides access to Hibernate sessions, tied to the
  * current thread of execution.  Follows the Thread Local Session
- * pattern, see {@link http://hibernate.org/42.html}.
+ * pattern, @see <a href="http://hibernate.org/42.html">hibernate Thread Local Session</a>}.
  */
 public class PosSessionFactory {
 
@@ -45,6 +46,10 @@ public class PosSessionFactory {
 			if (sessionFactory == null) {
 				try {
 					cfg.configure(CONFIG_FILE_LOCATION);
+					//Make sure certain things are set correctly from the App config
+					cfg.setProperty("hibernate.connection.url", ApplicationConfig.getConnectionURL());
+					cfg.setProperty("hibernate.connection.username", ApplicationConfig.getDatabaseUser());
+					cfg.setProperty("hibernate.connection.password", ApplicationConfig.getDatabasePassword());
 					sessionFactory = cfg.buildSessionFactory();
 				} catch (Exception e) {
 					System.err
