@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="ffe02b3c-eee6-4584-b016-cf05892591bd" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/floreantpos/jreports/TicketReceiptReport.jasper" afterPath="$PROJECT_DIR$/src/com/floreantpos/jreports/TicketReceiptReport.jasper" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/floreantpos.iml" afterPath="$PROJECT_DIR$/floreantpos.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/floreantpos.ipr" afterPath="$PROJECT_DIR$/floreantpos.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/floreantpos.iws" afterPath="$PROJECT_DIR$/floreantpos.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/floreantpos/main/Application.java" afterPath="$PROJECT_DIR$/src/com/floreantpos/main/Application.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/messages.properties" afterPath="$PROJECT_DIR$/resources/messages.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/floreantpos/POSConstants.java" afterPath="$PROJECT_DIR$/src/com/floreantpos/POSConstants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/floreantpos/bo/ui/BackOfficeWindow.java" afterPath="$PROJECT_DIR$/src/com/floreantpos/bo/ui/BackOfficeWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/floreantpos/jreports/TicketReceiptReport.jrxml" afterPath="$PROJECT_DIR$/src/com/floreantpos/jreports/TicketReceiptReport.jrxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/floreantpos/model/dao/AttendenceHistoryDAO.java" afterPath="$PROJECT_DIR$/src/com/floreantpos/model/dao/AttendenceHistoryDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/floreantpos/ui/dialog/MiscTicketItemDialog.java" afterPath="$PROJECT_DIR$/src/com/floreantpos/ui/dialog/MiscTicketItemDialog.java" />
     </list>
     <ignored path="floreantpos.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -18,7 +24,7 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="Commander">
     <leftPanel />
-    <rightPanel />
+    <rightPanel url="file://$PROJECT_DIR$" />
     <splitter proportion="0.5" />
   </component>
   <component name="CoverageDataManager" choice="3" />
@@ -29,6 +35,99 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <line_breakpoints>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/floreantpos/ui/report/MenuUsageReportView.java" line="93" class="com.floreantpos.ui.report.MenuUsageReportView" package="com.floreantpos.ui.report">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/floreantpos/ui/report/MenuUsageReportView.java" line="64" class="com.floreantpos.ui.report.MenuUsageReportView$1" package="com.floreantpos.ui.report">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/floreantpos/ui/report/MenuUsageReportView.java" line="92" class="com.floreantpos.ui.report.MenuUsageReportView" package="com.floreantpos.ui.report">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/floreantpos/model/dao/TicketDAO.java" line="142" class="com.floreantpos.model.dao.TicketDAO" package="com.floreantpos.model.dao">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/floreantpos/model/dao/_BaseRootDAO.java" line="40" class="com.floreantpos.model.dao._BaseRootDAO" package="com.floreantpos.model.dao">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/floreantpos/model/dao/_BaseRootDAO.java" line="31" class="com.floreantpos.model.dao._BaseRootDAO" package="com.floreantpos.model.dao">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/floreantpos/jreports/JReportPrintService.java" line="81" class="com.floreantpos.jreports.JReportPrintService" package="com.floreantpos.jreports">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -69,73 +168,85 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="User.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/floreantpos/model/User.java">
+      <file leaf-file-name="JReportPrintService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/floreantpos/jreports/JReportPrintService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="33" selection-start="93" selection-end="93" vertical-scroll-proportion="0.0">
+            <state line="81" column="0" selection-start="3696" selection-end="3696" vertical-scroll-proportion="-101.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DrawerPullReportDialog.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/floreantpos/ui/dialog/DrawerPullReportDialog.java">
+      <file leaf-file-name="PosSessionFactory.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/floreantpos/dal/PosSessionFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="27" selection-start="567" selection-end="567" vertical-scroll-proportion="0.0">
+            <state line="49" column="0" selection-start="1914" selection-end="1914" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1125#1134#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PosPrinter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/floreantpos/print/PosPrinter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="65" column="0" selection-start="1977" selection-end="1977" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PrinterDialog.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/floreantpos/ui/printer/PrinterDialog.java">
+      <file leaf-file-name="PosPrintService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/floreantpos/print/PosPrintService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="11" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0">
+            <state line="372" column="47" selection-start="13184" selection-end="13184" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UiUtil.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/floreantpos/ui/util/UiUtil.java">
+      <file leaf-file-name="PrintConfigurationView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/floreantpos/config/ui/PrintConfigurationView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="20" selection-start="439" selection-end="439" vertical-scroll-proportion="0.0">
+            <state line="128" column="113" selection-start="6153" selection-end="6153" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Application.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/floreantpos/main/Application.java">
+      <file leaf-file-name="PrinterConfiguration.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/floreantpos/model/PrinterConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="29" selection-start="3041" selection-end="3041" vertical-scroll-proportion="0.51039696">
+            <state line="43" column="0" selection-start="1289" selection-end="1289" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApplicationConfig.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/floreantpos/config/ApplicationConfig.java">
+      <file leaf-file-name="BasePrinterConfiguration.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/floreantpos/model/base/BasePrinterConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="38" selection-start="1105" selection-end="1105" vertical-scroll-proportion="0.0">
+            <state line="329" column="0" selection-start="8975" selection-end="8975" vertical-scroll-proportion="2.2769487">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/floreantpos/main/Main.java">
+      <file leaf-file-name="PrintConfig.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/floreantpos/config/PrintConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="35" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0">
+            <state line="4" column="13" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Messages.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/floreantpos/Messages.java">
+      <file leaf-file-name="PrinterConfiguration.hbm.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/floreantpos/model/PrinterConfiguration.hbm.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="84" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0">
+            <state line="30" column="17" selection-start="1601" selection-end="1601" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -150,22 +261,73 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/floreantpos/bo/ui/test.form" />
-        <option value="$PROJECT_DIR$/src/com/floreantpos/config/ApplicationConfig.java" />
-        <option value="$PROJECT_DIR$/src/com/floreantpos/main/Application.java" />
+        <option value="$PROJECT_DIR$/src/com/floreantpos/jreports/TicketDataSource.java" />
+        <option value="$PROJECT_DIR$/src/com/floreantpos/ui/dialog/MiscTicketItemDialog.java" />
+        <option value="$PROJECT_DIR$/src/com/floreantpos/ui/views/PaymentView.java" />
+        <option value="$PROJECT_DIR$/src/com/floreantpos/model/dao/AttendenceHistoryDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/floreantpos/POSConstants.java" />
+        <option value="$PROJECT_DIR$/resources/messages.properties" />
+        <option value="$PROJECT_DIR$/src/com/floreantpos/bo/actions/AttendanceHistoryExplorerAction.java" />
+        <option value="$PROJECT_DIR$/src/com/floreantpos/bo/ui/BackOfficeWindow.java" />
+        <option value="$PROJECT_DIR$/src/com/floreantpos/ui/forms/AttendenceHistoryForm.form" />
+        <option value="$PROJECT_DIR$/src/com/floreantpos/ui/forms/AttendenceHistoryForm.java" />
+        <option value="$PROJECT_DIR$/src/com/floreantpos/bo/ui/explorer/AttendenceHistoryExplorer.java" />
+        <option value="$PROJECT_DIR$/src/com/floreantpos/dal/PosSessionFactory.java" />
+        <option value="$PROJECT_DIR$/src/com/floreantpos/config/ui/PrintConfigurationView.java" />
+        <option value="$PROJECT_DIR$/src/com/floreantpos/model/base/BasePrinterConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/com/floreantpos/model/PrinterConfiguration.hbm.xml" />
+        <option value="$PROJECT_DIR$/src/com/floreantpos/jreports/JReportPrintService.java" />
       </list>
     </option>
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:\Code\java\apache-maven-3.0.4" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
       </MavenImportingSettings>
     </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="floreantpos" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="floreantpos" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
   </component>
   <component name="ModuleEditorState">
     <option name="LAST_EDITED_MODULE_NAME" />
@@ -174,8 +336,24 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1296" />
-    <option name="height" value="1040" />
+    <option name="width" value="1696" />
+    <option name="height" value="1066" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Abstraction issues</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -203,6 +381,182 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jreports" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="floreantpos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -217,53 +571,98 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="floreantpos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="floreantpos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="floreantpos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
       <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="GenerateAntBuildDialog.generateSingleFile" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="preferences.keymap" />
     <property name="MemberChooser.sorted" value="false" />
+    <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="floreantpos" />
     <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.floreantpos.bo.actions" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.POS">
+    <configuration default="false" name="floreantpos [clean]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+              </list>
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="false" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -340,8 +739,9 @@
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Application.POS" />
+      <item index="1" class="java.lang.String" itemvalue="Maven.floreantpos [clean]" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -349,6 +749,14 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SliceManager">
+    <option name="analysisUIOptions">
+      <AnalysisUIOptions />
+    </option>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="AUTOSCROLL_MODE" value="false" />
+  </component>
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="true">
     <option name="USER" value="" />
     <option name="PASSWORD" value="" />
@@ -364,6 +772,7 @@
     <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
     <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
     <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
     <configuration useDefault="true">C:\Users\Howler\AppData\Roaming\Subversion</configuration>
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
     <supportedVersion>125</supportedVersion>
@@ -374,34 +783,208 @@
       <created>1306169686421</created>
       <updated>1306169686421</updated>
     </task>
+    <task id="LOCAL-00002" summary="Add sorting to BackOffice Explorer views, and to the main TicketView.">
+      <created>1338842573073</created>
+      <updated>1338842573073</updated>
+    </task>
+    <task id="LOCAL-00003" summary="UserExplorer.java: Added Is Clocked  In? and Last Clock In Date to the Back Office Users Explorer.">
+      <created>1338842921968</created>
+      <updated>1338842921968</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Changed wording of &quot;Print receipt when ticket settled&quot; to &quot;Print receipt when ticket created&quot; to better reflect when the receipt will be printed. Also merged some more of the extracted string from 1.03rc.">
+      <created>1339509448680</created>
+      <updated>1339509448680</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Changed wording of &quot;Print receipt when ticket settled&quot; to &quot;Print receipt when ticket created&quot; to better reflect when the receipt will be printed. Also merged some more of the extracted string from 1.03rc.">
+      <created>1339509535985</created>
+      <updated>1339509535985</updated>
+    </task>
+    <task id="LOCAL-00006" summary="AttendenceHistoryDAO.java: Small typo in exception.">
+      <created>1339509979971</created>
+      <updated>1339509979971</updated>
+    </task>
+    <task id="LOCAL-00007" summary="IntelliJ project: Add .jasper files as resources, so they get included in the build.">
+      <created>1339530067873</created>
+      <updated>1339530067873</updated>
+    </task>
+    <task id="LOCAL-00008" summary="MenuUsageReport.java: Added calculations for average sales.">
+      <created>1339530134666</created>
+      <updated>1339530134666</updated>
+    </task>
+    <task id="LOCAL-00009" summary="ReportService.java: Extracted some of the criteria names to use the constants.">
+      <created>1339530232065</created>
+      <updated>1339530232065</updated>
+    </task>
+    <task id="LOCAL-00010" summary="TicketView.java: forgot to change the name of settled vs created method here. Also added check for only printing the main receipt on creation if the option is set.">
+      <created>1339530337858</created>
+      <updated>1339530337858</updated>
+    </task>
+    <task id="LOCAL-00011" summary="menu_usage_report: For some reason jasper was not creating the print order property into the report. This was causing the report to crash in the POS system.">
+      <created>1339530492957</created>
+      <updated>1339530492957</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Application.java: Changed to .setPlasticTheme for the right version of jGoodies from swinglabs.">
+      <created>1339533148476</created>
+      <updated>1339533148476</updated>
+    </task>
+    <task id="LOCAL-00013" summary="PayrollReportModel.java: Fixed the payroll report. The code and the report didn't match.">
+      <created>1339533220000</created>
+      <updated>1339533220000</updated>
+    </task>
+    <task id="LOCAL-00014" summary="IntelliJ project: Update to use Maven.">
+      <created>1339533352295</created>
+      <updated>1339533352295</updated>
+    </task>
+    <task id="LOCAL-00015" summary="PaymentView.java: Changed to use settings (print config) to determine wether or not to print the receipt and kitchen receipt when the ticket is paid.">
+      <created>1339534037525</created>
+      <updated>1339534037525</updated>
+    </task>
+    <task id="LOCAL-00016" summary="SalesExceptionReport: Reverted column names to strings. Need to update report before changing these to constants.">
+      <created>1339534117373</created>
+      <updated>1339534117373</updated>
+    </task>
+    <task id="LOCAL-00017" summary="SalesStatistics.java: Fixed typo. Entre != Enter.">
+      <created>1339534148638</created>
+      <updated>1339534148638</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Ticket Modifiers: Added the name of the modifiers, so we can do special things with special modifiers.">
+      <created>1339534865270</created>
+      <updated>1339534865270</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Application.java: Make sure that the database session gets flushed, and closed properly when the application exits.">
+      <created>1340302429059</created>
+      <updated>1340302429059</updated>
+    </task>
+    <task id="LOCAL-00020" summary="TicketDAO.java: Use the new Hibernate database session.">
+      <created>1340302619759</created>
+      <updated>1340302619759</updated>
+    </task>
+    <task id="LOCAL-00021" summary="hibernate.cfg.xml: Updated hibernate config to use the latest Derby Dialect (that understands a boolean), and fixed the names of some of the mappings.">
+      <created>1340303058255</created>
+      <updated>1340303058255</updated>
+    </task>
+    <task id="LOCAL-00022" summary="IntelliJ project: updated hibernate version, and maven updates.">
+      <created>1340303288142</created>
+      <updated>1340303288142</updated>
+    </task>
+    <task id="LOCAL-00023" summary="IntelliJ project: updated hibernate version, and maven updates.">
+      <created>1340303330252</created>
+      <updated>1340303330252</updated>
+    </task>
+    <task id="LOCAL-00024" summary="PasswordScreen.java: Allow the enter key to login, when using a keyboard.">
+      <created>1340303402885</created>
+      <updated>1340303402885</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Printer Configuration: Update to use the database instead of local preferences. Also renamed Settled to Paid. Added column for 2 kitchen tickets in the database, and model.">
+      <created>1340303577408</created>
+      <updated>1340303577408</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Printer Configuration: Create the lazy loaded printer configuration object that is loaded from the database.">
+      <created>1341382080900</created>
+      <updated>1341382080900</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Printer Configuration: Added print two kitchen tickets option, and added said option to the printer configuration screen.">
+      <created>1341382144506</created>
+      <updated>1341382144506</updated>
+    </task>
+    <task id="LOCAL-00028" summary="KitchenDataSource.java:  Added extra tabs in front of modifiers on the kitchen ticket. Also more spacing for a modifier group named &quot;Toppings&quot; or &quot;Condiments.&quot;  Added tabs and &quot;%%%%&quot; to any modifiers from the group named &quot;Special Instructions&quot; to get the chef's attention.">
+      <created>1341438546129</created>
+      <updated>1341438546129</updated>
+    </task>
+    <task id="LOCAL-00029" summary="KitchenDataSource.java:  Added a line of dashes between items on the kitchen ticket. This should allow for easier recognition of dishes for the chefs.">
+      <created>1341439335023</created>
+      <updated>1341439335023</updated>
+    </task>
+    <task id="LOCAL-00030" summary="TicketDataSource.java: Added the same spacing for modifiers that I did on the kitchen ticket. This should help discern them from other items on the ticket.">
+      <created>1341458165266</created>
+      <updated>1341458165266</updated>
+    </task>
+    <task id="LOCAL-00031" summary="KitchenTicketDataSource.java: forgot to change the blank row to include the item number.">
+      <created>1341458504833</created>
+      <updated>1341458504833</updated>
+    </task>
+    <task id="LOCAL-00032" summary="TicketView.java: Added feature to where only people with &quot;Void&quot; permissions can delete an item after it has been sent to the kitchen.">
+      <created>1341458579872</created>
+      <updated>1341458579872</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Printer configuration: Added option to show a print preview instead of printing tickets to the printer. This is mainly for debugging.">
+      <created>1341462102150</created>
+      <updated>1341462102150</updated>
+    </task>
+    <task id="LOCAL-00034" summary="JReportPrintService.java: implemented the print preview instead of print option. When checked, the jasper viewer will be loaded instead of sending the ticket to the printer.">
+      <created>1341582547206</created>
+      <updated>1341582547206</updated>
+    </task>
+    <task id="LOCAL-00035" summary="TicketDataSource.java: Set the unit price to 0.0 for &quot;NO&quot; modifiers. [GitHub Issue #10]">
+      <created>1341588914484</created>
+      <updated>1341588914484</updated>
+    </task>
+    <task id="LOCAL-00036" summary="TicketDataSource.java, BaseTicketItemModifier: Found a better way to remove the cost of &quot;No&quot; modifier items. Simply have the modifier report a 0 item count. This fixes the on screen display as well as the ticket print. [GitHub Issue #10]">
+      <created>1341593589801</created>
+      <updated>1341593589801</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Changed the ticket and payment views to respect the new printer configuration about printing receipts when the tickets are created and paid.">
+      <created>1341863014342</created>
+      <updated>1341863014342</updated>
+    </task>
+    <task id="LOCAL-00038" summary="PosSessionFactory.java: GitHub issue 13 -- The hibernate configuration was using the default data set in the xml file, instead of what was being set in the Application Config. This caused hibernate to try and connect to 'localhost' instead of the remote server.">
+      <created>1345008117185</created>
+      <updated>1345008117185</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Print Configuration: Added printer configuration option for whether or not to show the item numbers on the kitchen ticket. This allows users to not show item numbers if they don't really mean anything to the user.">
+      <created>1345432752972</created>
+      <updated>1345432752972</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="1040" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1696" height="1066" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928804" sideWeight="0.67018074" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27876106" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17627944" sideWeight="0.4259681" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24939074" sideWeight="0.69204545" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2721239" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.6715909" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25892857" sideWeight="0.6715909" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.6715909" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3284091" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21682848" sideWeight="0.67018074" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32522124" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32915717" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31076923" sideWeight="0.13782051" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.106683016" sideWeight="0.7212389" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39886272" sideWeight="0.59886366" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16983446" sideWeight="0.7212389" order="0" side_tool="true" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22234513" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17694806" sideWeight="0.56605923" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="92" y="92" width="1096" height="840" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.6715909" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25995576" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -411,8 +994,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <option name="myTodoPanelSettings">
       <value>
         <are-packages-shown value="false" />
@@ -443,8 +1026,8 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
-    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
+    <option name="LAST_COMMIT_MESSAGE" value="Print Configuration: Added printer configuration option for whether or not to show the item numbers on the kitchen ticket. This allows users to not show item numbers if they don't really mean anything to the user." />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
@@ -456,6 +1039,31 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="IntelliJ project: Update to use Maven." />
+    <MESSAGE value="PaymentView.java: Changed to use settings (print config) to determine wether or not to print the receipt and kitchen receipt when the ticket is paid." />
+    <MESSAGE value="SalesExceptionReport: Reverted column names to strings. Need to update report before changing these to constants." />
+    <MESSAGE value="SalesStatistics.java: Fixed typo. Entre != Enter." />
+    <MESSAGE value="Ticket Modifiers: Added the name of the modifiers, so we can do special things with special modifiers." />
+    <MESSAGE value="Application.java: Make sure that the database session gets flushed, and closed properly when the application exits." />
+    <MESSAGE value="TicketDAO.java: Use the new Hibernate database session." />
+    <MESSAGE value="hibernate.cfg.xml: Updated hibernate config to use the latest Derby Dialect (that understands a boolean), and fixed the names of some of the mappings." />
+    <MESSAGE value="IntelliJ project: updated hibernate version, and maven updates." />
+    <MESSAGE value="PasswordScreen.java: Allow the enter key to login, when using a keyboard." />
+    <MESSAGE value="Printer Configuration: Update to use the database instead of local preferences. Also renamed Settled to Paid. Added column for 2 kitchen tickets in the database, and model." />
+    <MESSAGE value="Printer Configuration: Create the lazy loaded printer configuration object that is loaded from the database." />
+    <MESSAGE value="Printer Configuration: Added print two kitchen tickets option, and added said option to the printer configuration screen." />
+    <MESSAGE value="KitchenDataSource.java:  Added extra tabs in front of modifiers on the kitchen ticket. Also more spacing for a modifier group named &quot;Toppings&quot; or &quot;Condiments.&quot;  Added tabs and &quot;%%%%&quot; to any modifiers from the group named &quot;Special Instructions&quot; to get the chef's attention." />
+    <MESSAGE value="KitchenDataSource.java:  Added a line of dashes between items on the kitchen ticket. This should allow for easier recognition of dishes for the chefs." />
+    <MESSAGE value="TicketDataSource.java: Added the same spacing for modifiers that I did on the kitchen ticket. This should help discern them from other items on the ticket." />
+    <MESSAGE value="KitchenTicketDataSource.java: forgot to change the blank row to include the item number." />
+    <MESSAGE value="TicketView.java: Added feature to where only people with &quot;Void&quot; permissions can delete an item after it has been sent to the kitchen." />
+    <MESSAGE value="Printer configuration: Added option to show a print preview instead of printing tickets to the printer. This is mainly for debugging." />
+    <MESSAGE value="JReportPrintService.java: implemented the print preview instead of print option. When checked, the jasper viewer will be loaded instead of sending the ticket to the printer." />
+    <MESSAGE value="TicketDataSource.java: Set the unit price to 0.0 for &quot;NO&quot; modifiers. [GitHub Issue #10]" />
+    <MESSAGE value="TicketDataSource.java, BaseTicketItemModifier: Found a better way to remove the cost of &quot;No&quot; modifier items. Simply have the modifier report a 0 item count. This fixes the on screen display as well as the ticket print. [GitHub Issue #10]" />
+    <MESSAGE value="Changed the ticket and payment views to respect the new printer configuration about printing receipts when the tickets are created and paid." />
+    <MESSAGE value="PosSessionFactory.java: GitHub issue 13 -- The hibernate configuration was using the default data set in the xml file, instead of what was being set in the Application Config. This caused hibernate to try and connect to 'localhost' instead of the remote server." />
+    <MESSAGE value="Print Configuration: Added printer configuration option for whether or not to show the item numbers on the kitchen ticket. This allows users to not show item numbers if they don't really mean anything to the user." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -467,94 +1075,97 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/floreantpos/bo/ui/BackOfficeWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="13" selection-start="2394" selection-end="2394" vertical-scroll-proportion="0.0" />
+        <state line="148" column="41" selection-start="4715" selection-end="4715" vertical-scroll-proportion="0.5795981" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/bo/ui/BackOfficeWindow.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/local-lib/com/looks-1.3.1.jar!/com/jgoodies/looks/plastic/PlasticXPLookAndFeel.class">
+    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/ui/views/order/RootView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="164" selection-end="164" vertical-scroll-proportion="0.11627907" />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/local-lib/com/jgoodies-looks-2.5.1.jar!/com/jgoodies/looks/plastic/theme/ExperienceBlue.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="170" selection-end="170" vertical-scroll-proportion="0.11627907" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/bo/actions/CategoryExplorerAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="33" selection-start="93" selection-end="93" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/ui/dialog/DrawerPullReportDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="27" selection-start="567" selection-end="567" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/ui/printer/PrinterDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="11" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/ui/util/UiUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="20" selection-start="439" selection-end="439" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/floreantpos.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/messages.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="10" selection-start="27" selection-end="37" vertical-scroll-proportion="-0.53846157">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/POSConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="50" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/Messages.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="84" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="35" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/config/ApplicationConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="38" selection-start="1105" selection-end="1105" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="28" column="27" selection-start="783" selection-end="783" vertical-scroll-proportion="0.023183925" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/floreantpos/main/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="29" selection-start="3041" selection-end="3041" vertical-scroll-proportion="0.51039696">
+        <state line="69" column="22" selection-start="2350" selection-end="2350" vertical-scroll-proportion="-0.09463722" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/config/ui/DatabaseConfigurationDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="131" column="30" selection-start="4306" selection-end="4306" vertical-scroll-proportion="0.42600897" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/config/ApplicationConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="4" selection-start="2189" selection-end="2189" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/jreports/KitchenTicketDataSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="49" selection-start="319" selection-end="319" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/print/PosPrinter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="0" selection-start="1977" selection-end="1977" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/config/PrintConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="13" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/model/PrinterConfiguration.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="17" selection-start="1601" selection-end="1601" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/dal/PosSessionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="0" selection-start="1914" selection-end="1914" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1125#1134#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/jreports/AbstractReportDataSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="22" selection-start="127" selection-end="127" vertical-scroll-proportion="0.024630541">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/print/PosPrintService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="372" column="47" selection-start="13184" selection-end="13184" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/config/ui/PrintConfigurationView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="128" column="113" selection-start="6153" selection-end="6153" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/model/PrinterConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="0" selection-start="1289" selection-end="1289" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/jreports/JReportPrintService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="0" selection-start="3696" selection-end="3696" vertical-scroll-proportion="-101.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/floreantpos/model/base/BasePrinterConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="329" column="0" selection-start="8975" selection-end="8975" vertical-scroll-proportion="2.2769487">
           <folding />
         </state>
       </provider>
@@ -617,6 +1228,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -624,7 +1236,18 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: org.swinglabs:swingx-core:1.6.2-2</last-edited>
+          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>
