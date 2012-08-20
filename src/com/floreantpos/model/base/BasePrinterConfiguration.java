@@ -60,6 +60,7 @@ public abstract class BasePrinterConfiguration  implements Comparable, Serializa
 	private java.lang.Boolean useNormalPrinterForKitchen;
 	private Boolean printTwoKitchenTickets = false;
 	private Boolean printPreviewInsteadOfPrint = false;
+	private Boolean printKitchenItemNumbers = true;
 
 
 
@@ -323,5 +324,20 @@ public abstract class BasePrinterConfiguration  implements Comparable, Serializa
 	}
 	public void setPrintPreviewInsteadOfPrint(Boolean printPreviewInsteadOfPrint) {
 		this.printPreviewInsteadOfPrint = printPreviewInsteadOfPrint;
+	}
+
+	public Boolean isPrintKitchenItemNumbers() {
+		if (printKitchenItemNumbers == null) {
+			return getPrintKitchenItemNumbersDefaultValue();
+		}
+		return printKitchenItemNumbers;
+	}
+
+	private Boolean getPrintKitchenItemNumbersDefaultValue() {
+		return true;
+	}
+
+	public void setPrintKitchenItemNumbers(Boolean printKitchenItemNumbers) {
+		this.printKitchenItemNumbers = printKitchenItemNumbers;
 	}
 }

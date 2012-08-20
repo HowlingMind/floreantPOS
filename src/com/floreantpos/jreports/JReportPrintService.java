@@ -79,6 +79,7 @@ public class JReportPrintService {
 		map.put("guestCount", com.floreantpos.POSConstants.GUESTS_ + ticket.getNumberOfGuests());
 		map.put("serverName", com.floreantpos.POSConstants.SERVER + ": " + ticket.getOwner());
 		map.put("reportDate", com.floreantpos.POSConstants.DATE + ": " + Application.formatDate(new Date()));
+		map.put("showItemNumbers",PrinterConfiguration.printerConfiguration().isPrintKitchenItemNumbers());
 
 		InputStream ticketReportStream = null;
 

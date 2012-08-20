@@ -16,7 +16,6 @@ import com.floreantpos.config.PrintConfig;
 import com.floreantpos.dal.PosSessionFactory;
 import com.floreantpos.model.PrinterConfiguration;
 import com.floreantpos.print.PrinterType;
-import org.hibernate.Session;
 
 import javax.print.PrintService;
 import javax.print.PrintServiceLookup;
@@ -30,7 +29,7 @@ import java.awt.*;
 public class PrintConfigurationView extends ConfigurationView {
 
 	private PrinterConfiguration printerConfiguration;
-	private Session currentSession;
+	private org.hibernate.Session currentSession;
 
 	/** Creates new form PrintConfiguration */
 	public PrintConfigurationView() {
@@ -89,6 +88,7 @@ public class PrintConfigurationView extends ConfigurationView {
 		chkPrintKitchenWhenTicketCreated.setSelected(printerConfiguration.isPrintKitchenWhenTicketCreated());
 		chkPreviewInsteadOfPrint.setSelected(printerConfiguration.isPrintPreviewInsteadOfPrint());
 		chkPrintTwoKitchenTickets.setSelected(printerConfiguration.isPrintTwoKitchenTickets());
+		chkPrintKitchenItemNumbers.setSelected(printerConfiguration.isPrintKitchenItemNumbers());
 
 		setInitialized(true);
 	}
@@ -135,6 +135,7 @@ public class PrintConfigurationView extends ConfigurationView {
 		printerConfiguration.setPrintReceiptWhenTicketCreated(chkPrintReceiptWhenTicketCreated.isSelected());
 		printerConfiguration.setPrintPreviewInsteadOfPrint(chkPreviewInsteadOfPrint.isSelected());
 		printerConfiguration.setPrintTwoKitchenTickets(chkPrintTwoKitchenTickets.isSelected());
+		printerConfiguration.setPrintKitchenItemNumbers(chkPrintKitchenItemNumbers.isSelected());
 
 		//Persist to the database
 		currentSession.saveOrUpdate(printerConfiguration);
@@ -228,6 +229,10 @@ public class PrintConfigurationView extends ConfigurationView {
         chkPrintTwoKitchenTickets = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
         chkPreviewInsteadOfPrint = new javax.swing.JCheckBox();
+        jLabel4 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel5 = new javax.swing.JLabel();
+        chkPrintKitchenItemNumbers = new javax.swing.JCheckBox();
 
         chkPrintReceiptWhenTicketCreated.setText("Print receipt when ticket created");
 
@@ -237,7 +242,8 @@ public class PrintConfigurationView extends ConfigurationView {
 
         chkPrintKitchenWhenTicketPaid.setText("Print to kitchen when ticket paid");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Receipt Printer", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Receipt Printer",
+		          javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP));
 
         lblReceiptCashDrawerName.setText("CashDrawer:");
 
@@ -248,9 +254,9 @@ public class PrintConfigurationView extends ConfigurationView {
         tfReceiptPrinterName.setText("PosPrinter");
 
         cbReceiptPrinterType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                receiptPrinterSelectionChanged(evt);
-            }
+	        public void actionPerformed(java.awt.event.ActionEvent evt) {
+		        receiptPrinterSelectionChanged(evt);
+	        }
         });
 
         jLabel1.setText("Printer Type:");
@@ -260,58 +266,74 @@ public class PrintConfigurationView extends ConfigurationView {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblReceiptPrinterName)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfReceiptPrinterName))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbReceiptPrinterType, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSelectReceiptPrinter)
-                    .addComponent(lblReceiptCashDrawerName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfReceiptCashDrawerName, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
-                    .addComponent(cbReceiptPrinterName, 0, 178, Short.MAX_VALUE))
-                .addContainerGap())
+		          jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+					         .addGroup(jPanel1Layout.createSequentialGroup()
+								        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+										          false)
+										          .addGroup(javax.swing.GroupLayout.Alignment.LEADING,
+													         jPanel1Layout.createSequentialGroup()
+																        .addComponent(lblReceiptPrinterName)
+																        .addPreferredGap(
+																		          javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+																        .addComponent(tfReceiptPrinterName))
+										          .addGroup(jPanel1Layout.createSequentialGroup()
+													         .addComponent(jLabel1)
+													         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+													         .addComponent(cbReceiptPrinterType,
+																        javax.swing.GroupLayout.PREFERRED_SIZE, 182,
+																        javax.swing.GroupLayout.PREFERRED_SIZE)))
+								        .addGap(18, 18, 18)
+								        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+										          .addComponent(lblSelectReceiptPrinter)
+										          .addComponent(lblReceiptCashDrawerName))
+								        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+										          .addComponent(tfReceiptCashDrawerName, javax.swing.GroupLayout.DEFAULT_SIZE,
+													         178, Short.MAX_VALUE)
+										          .addComponent(cbReceiptPrinterName, 0, 178, Short.MAX_VALUE))
+								        .addContainerGap())
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, lblReceiptPrinterName});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL,
+		          new java.awt.Component[]{jLabel1, lblReceiptPrinterName});
 
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(cbReceiptPrinterType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSelectReceiptPrinter)
-                    .addComponent(cbReceiptPrinterName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblReceiptPrinterName)
-                    .addComponent(tfReceiptPrinterName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblReceiptCashDrawerName)
-                    .addComponent(tfReceiptCashDrawerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+		          jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+					         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+								        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										          .addComponent(jLabel1)
+										          .addComponent(cbReceiptPrinterType, javax.swing.GroupLayout.PREFERRED_SIZE,
+													         javax.swing.GroupLayout.DEFAULT_SIZE,
+													         javax.swing.GroupLayout.PREFERRED_SIZE)
+										          .addComponent(lblSelectReceiptPrinter)
+										          .addComponent(cbReceiptPrinterName, javax.swing.GroupLayout.PREFERRED_SIZE,
+													         javax.swing.GroupLayout.DEFAULT_SIZE,
+													         javax.swing.GroupLayout.PREFERRED_SIZE))
+								        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										          .addComponent(lblReceiptPrinterName)
+										          .addComponent(tfReceiptPrinterName, javax.swing.GroupLayout.PREFERRED_SIZE,
+													         javax.swing.GroupLayout.DEFAULT_SIZE,
+													         javax.swing.GroupLayout.PREFERRED_SIZE)
+										          .addComponent(lblReceiptCashDrawerName)
+										          .addComponent(tfReceiptCashDrawerName, javax.swing.GroupLayout.PREFERRED_SIZE,
+													         javax.swing.GroupLayout.DEFAULT_SIZE,
+													         javax.swing.GroupLayout.PREFERRED_SIZE))
+								        .addContainerGap())
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Kitchen Printer", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Kitchen Printer",
+		          javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP));
 
         lblKitchenPrinterName.setText("Printer name:");
 
         tfKitchenPrinterName.setText("KitchenPrinter");
 
         cbKitchenPrinterType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kitchenPrinterTypeSelectionChanged(evt);
-            }
+	        public void actionPerformed(java.awt.event.ActionEvent evt) {
+		        kitchenPrinterTypeSelectionChanged(evt);
+	        }
         });
 
         jLabel2.setText("Printer Type:");
@@ -364,57 +386,92 @@ public class PrintConfigurationView extends ConfigurationView {
 
         chkPreviewInsteadOfPrint.setText("Print preview instead printing");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("Kitchen Ticket Options");
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("Receipt Options");
+
+        chkPrintKitchenItemNumbers.setText("Print Item numbers");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chkPreviewInsteadOfPrint)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
+		                          javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE,
+		                          javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(chkPrintReceiptWhenTicketCreated)
-                            .addComponent(chkPrintReceiptWhenTicketPaid)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(chkPrintKitchenWhenTicketCreated)
-                                    .addComponent(chkPrintKitchenWhenTicketPaid))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(chkPreviewInsteadOfPrint)
-                                    .addComponent(chkPrintTwoKitchenTickets)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3)))
+		                          .addGroup(layout.createSequentialGroup()
+					                         .addGap(8, 8, 8)
+					                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								                        .addComponent(chkPrintReceiptWhenTicketPaid)
+								                        .addComponent(chkPrintReceiptWhenTicketCreated))
+					                         .addGap(55, 55, 55))
+		                          .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+					                         .addComponent(jLabel5)
+					                         .addGap(79, 79, 79)))
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2,
+		                          javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+		                          .addGroup(layout.createSequentialGroup()
+					                         .addGap(51, 51, 51)
+					                         .addComponent(jLabel4))
+		                          .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+					                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+								                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								                        .addComponent(chkPrintKitchenWhenTicketCreated)
+								                        .addComponent(chkPrintKitchenWhenTicketPaid)
+								                        .addComponent(chkPrintTwoKitchenTickets)
+								                        .addComponent(chkPrintKitchenItemNumbers))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+		                  javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chkPrintReceiptWhenTicketCreated)
-                    .addComponent(chkPreviewInsteadOfPrint))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(chkPrintReceiptWhenTicketPaid)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chkPrintKitchenWhenTicketCreated)
-                    .addComponent(chkPrintTwoKitchenTickets))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(chkPrintKitchenWhenTicketPaid)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(chkPreviewInsteadOfPrint)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+		                  .addGroup(layout.createSequentialGroup()
+					                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+								                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
+					                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+					                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								                .addGroup(layout.createSequentialGroup()
+										                  .addComponent(chkPrintReceiptWhenTicketCreated)
+										                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+										                  .addComponent(chkPrintReceiptWhenTicketPaid))
+								                .addGroup(layout.createSequentialGroup()
+										                  .addComponent(chkPrintKitchenWhenTicketCreated)
+										                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+										                  .addComponent(chkPrintKitchenWhenTicketPaid)))
+					                 .addGap(18, 18, 18)
+					                 .addComponent(chkPrintTwoKitchenTickets)
+					                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+					                 .addComponent(chkPrintKitchenItemNumbers))
+		                  .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 161,
+					                 javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -424,14 +481,18 @@ public class PrintConfigurationView extends ConfigurationView {
     private javax.swing.JComboBox cbReceiptPrinterName;
     private javax.swing.JComboBox cbReceiptPrinterType;
     private javax.swing.JCheckBox chkPreviewInsteadOfPrint;
+    private javax.swing.JCheckBox chkPrintKitchenItemNumbers;
     private javax.swing.JCheckBox chkPrintKitchenWhenTicketCreated;
     private javax.swing.JCheckBox chkPrintKitchenWhenTicketPaid;
     private javax.swing.JCheckBox chkPrintReceiptWhenTicketCreated;
     private javax.swing.JCheckBox chkPrintReceiptWhenTicketPaid;
     private javax.swing.JCheckBox chkPrintTwoKitchenTickets;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblKitchenPrinterName;
     private javax.swing.JLabel lblReceiptCashDrawerName;
     private javax.swing.JLabel lblReceiptPrinterName;
