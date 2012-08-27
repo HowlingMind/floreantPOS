@@ -1,16 +1,5 @@
 package com.floreantpos.bo.ui.explorer;
 
-import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.List;
-
-import javax.swing.JButton;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.AbstractTableModel;
-import javax.swing.table.TableRowSorter;
-
 import com.floreantpos.main.Application;
 import com.floreantpos.model.CouponAndDiscount;
 import com.floreantpos.model.dao.CouponAndDiscountDAO;
@@ -21,6 +10,14 @@ import com.floreantpos.ui.dialog.BeanEditorDialog;
 import com.floreantpos.ui.dialog.ConfirmDeleteDialog;
 import com.floreantpos.ui.model.CouponForm;
 
+import javax.swing.*;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableRowSorter;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+
 public class CouponExplorer extends TransparentPanel implements ActionListener {
 	private JTable explorerView;
 	private CouponExplorerTableModel explorerModel;
@@ -29,8 +26,6 @@ public class CouponExplorer extends TransparentPanel implements ActionListener {
 		
 		explorerView = new JTable();
 		explorerView.setDefaultRenderer(Object.class, new PosTableRenderer());
-		//Add sorting, dag nabit!
-		explorerView.setRowSorter(new TableRowSorter(explorerModel));
 		
 		setLayout(new BorderLayout(5,5));
 		add(new JScrollPane(explorerView));
@@ -59,6 +54,8 @@ public class CouponExplorer extends TransparentPanel implements ActionListener {
 		List<CouponAndDiscount> couponList = dao.findAll();
 		explorerModel = new CouponExplorerTableModel(couponList);
 		explorerView.setModel(explorerModel);
+		//Add sorting, dag nabit!
+		explorerView.setRowSorter(new TableRowSorter<CouponExplorerTableModel>(explorerModel));
 	}
 	
 	private void addNewCoupon() {
