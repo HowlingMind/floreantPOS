@@ -1,17 +1,16 @@
 package com.floreantpos.ui.ticket;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-
-import javax.swing.JTable;
-import javax.swing.table.AbstractTableModel;
-
 import com.floreantpos.model.Ticket;
 import com.floreantpos.model.TicketItem;
 import com.floreantpos.model.TicketItemModifier;
 import com.floreantpos.model.TicketItemModifierGroup;
+
+import javax.swing.*;
+import javax.swing.table.AbstractTableModel;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 
 public class TicketTableModel extends AbstractTableModel {
 	private JTable table;
@@ -150,7 +149,7 @@ public class TicketTableModel extends AbstractTableModel {
 			List<TicketItem> ticketItems = ticket.getTicketItems();
 			boolean exists = false;
 			for (TicketItem item : ticketItems) {
-				if (item.getName().equals(ticketItem.getName())) {
+				if (item.getName().equals(ticketItem.getName()) && !item.isPrintedToKitchen()) {
 					int itemCount = item.getItemCount();
 					item.setItemCount(++itemCount);
 					exists = true;
