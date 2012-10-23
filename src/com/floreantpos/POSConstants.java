@@ -311,6 +311,7 @@ public class POSConstants {
 	public static final String NEW_MENU_CATEGORY = Messages.getString("PosMessage.308"); //$NON-NLS-1$
 	public static final String PERCENTAGE = Messages.getString("PosMessage.309"); //$NON-NLS-1$
 	public static final String ENTRE = Messages.getString("PosMessage.312"); //$NON-NLS-1$
+	public static final String ATTENDANCE_HISTORY = Messages.getString("PosMessage.313"); //$NON-NLS-1$
 	public static final String WELCOME = Messages.getString("Switchboard.0"); //$NON-NLS-1$
 	public static final String OPEN_TICKETS_AND_ACTIVITY = Messages.getString("Switchboard.1"); //$NON-NLS-1$
 	public static final String TICKETS = Messages.getString("Switchboard.2"); //$NON-NLS-1$
