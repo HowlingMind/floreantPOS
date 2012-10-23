@@ -1,22 +1,17 @@
 package com.floreantpos.model.dao;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-
+import com.floreantpos.PosException;
+import com.floreantpos.model.*;
+import com.floreantpos.report.PayrollReportData;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
-import com.floreantpos.PosException;
-import com.floreantpos.model.AttendenceHistory;
-import com.floreantpos.model.Shift;
-import com.floreantpos.model.Terminal;
-import com.floreantpos.model.Ticket;
-import com.floreantpos.model.User;
-import com.floreantpos.report.PayrollReportData;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 public class AttendenceHistoryDAO extends BaseAttendenceHistoryDAO {
 
@@ -159,4 +154,32 @@ public class AttendenceHistoryDAO extends BaseAttendenceHistoryDAO {
 			}
 		}
 	}
+
+	public List<AttendenceHistory> findHistoryByUser(User user) {
+			Session session = null;
+
+			ArrayList<AttendenceHistory> attendenceHistories = new ArrayList<AttendenceHistory>();
+
+			try {
+				session = getSession();
+				Criteria criteria = session.createCriteria(AttendenceHistory.class);
+				criteria.add(Restrictions.eq(AttendenceHistory.PROP_USER,user.getUserId()));
+				criteria.addOrder(Order.asc(AttendenceHistory.PROP_ID));
+				List sessionResult = criteria.list();
+
+				for (Iterator iterator = sessionResult.iterator(); iterator.hasNext();) {
+					AttendenceHistory history = (AttendenceHistory) iterator.next();
+
+					attendenceHistories.add(history);
+				}
+
+				return attendenceHistories;
+			} catch (Exception e) {
+				throw new PosException("Unable to complete attendance history report.", e);
+			} finally {
+				if (session != null) {
+					session.close();
+				}
+			}
+		}
 }
