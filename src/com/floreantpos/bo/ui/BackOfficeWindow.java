@@ -6,52 +6,18 @@
 
 package com.floreantpos.bo.ui;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.util.Set;
-
-import javax.swing.AbstractAction;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JPopupMenu;
-
-import com.floreantpos.bo.actions.CategoryExplorerAction;
-import com.floreantpos.bo.actions.ConfigureRestaurantAction;
-import com.floreantpos.bo.actions.CookingInstructionExplorerAction;
-import com.floreantpos.bo.actions.CouponExplorerAction;
-import com.floreantpos.bo.actions.DrawerPullReportExplorerAction;
-import com.floreantpos.bo.actions.GroupExplorerAction;
-import com.floreantpos.bo.actions.ItemExplorerAction;
-import com.floreantpos.bo.actions.ModifierExplorerAction;
-import com.floreantpos.bo.actions.ModifierGroupExplorerAction;
-import com.floreantpos.bo.actions.ShiftExplorerAction;
-import com.floreantpos.bo.actions.UserExplorerAction;
-import com.floreantpos.bo.actions.UserTypeExplorerAction;
-import com.floreantpos.bo.actions.ViewGratuitiesAction;
+import com.floreantpos.bo.actions.*;
 import com.floreantpos.config.ApplicationConfig;
 import com.floreantpos.main.Application;
 import com.floreantpos.model.User;
 import com.floreantpos.model.UserPermission;
 import com.floreantpos.model.UserType;
-import com.floreantpos.ui.report.actions.CreditCardReportAction;
-import com.floreantpos.ui.report.actions.HourlyLaborReportAction;
-import com.floreantpos.ui.report.actions.JournalReportAction;
-import com.floreantpos.ui.report.actions.KeyStatisticsSalesReportAction;
-import com.floreantpos.ui.report.actions.MenuUsageReportAction;
-import com.floreantpos.ui.report.actions.OpenTicketSummaryReportAction;
-import com.floreantpos.ui.report.actions.PayrollReportAction;
-import com.floreantpos.ui.report.actions.SalesAnalysisReportAction;
-import com.floreantpos.ui.report.actions.SalesBalanceReportAction;
-import com.floreantpos.ui.report.actions.SalesDetailReportAction;
-import com.floreantpos.ui.report.actions.SalesExceptionReportAction;
-import com.floreantpos.ui.report.actions.SalesReportAction;
-import com.floreantpos.ui.report.actions.ServerProductivityReportAction;
+import com.floreantpos.ui.report.actions.*;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.Set;
 
 /**
  *
@@ -185,6 +151,7 @@ public class BackOfficeWindow extends javax.swing.JFrame {
 		adminMenu.add(new UserTypeExplorerAction());
 		adminMenu.add(new ViewGratuitiesAction());
 		adminMenu.add(new DrawerPullReportExplorerAction());
+		adminMenu.add(new AttendanceHistoryExplorerAction());
 		menuBar.add(adminMenu);
 	}
 
